@@ -11,6 +11,9 @@ import CoreData
 
 
 class TodokeTableViewController: UITableViewController {
+    
+    var allTasks: [NSManagedObject] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -46,9 +49,21 @@ class TodokeTableViewController: UITableViewController {
         do {
             // Save changes in context to write them to disk
             try context.save()
+            // And add newly created task object to array allTasks
+            allTasks.append(taskObject)
         } catch {
             print("Core Data save failure")
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return allTasks.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
+        cell.textLabel?.text = allTasks[indexPath.row].value(forKey: "title") as? String
+        return cell
     }
 }
 

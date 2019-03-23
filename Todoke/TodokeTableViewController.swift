@@ -116,7 +116,7 @@ class TodokeTableViewController: UITableViewController {
     // TODO: - Multiple pages/sections for different types of tasks
 }
 
-// MARK: - Extensions
+    // MARK: - Extensions
 
 extension UINavigationController {
     // Ask top controller for its status bar style and update accordingly

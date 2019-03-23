@@ -90,6 +90,21 @@ class TodokeTableViewController: UITableViewController {
         cell.accessoryView?.tintColor = UIColor.darkGray
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == UITableViewCell.EditingStyle.delete) {
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context = appDelegate.persistentContainer.viewContext
+            context.delete(allTasks[indexPath.row])
+            allTasks.remove(at: indexPath.row)
+            do {
+                try context.save()
+            } catch {
+                print("Core Data deletion failure")
+            }
+            tableView.reloadData()
+        }
+    }
 }
 
 extension UINavigationController {

@@ -54,6 +54,9 @@ class TodokeTableViewController: UITableViewController {
         } catch {
             print("Core Data save failure")
         }
+        
+        // Table feed needs to be reloaded after adding a new task
+        self.tableView.reloadData()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

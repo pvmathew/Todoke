@@ -18,6 +18,24 @@ class TodokeTableViewController: UITableViewController {
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        // Define fetch request for Task objects
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Task")
+        
+        do {
+            // Attempts fetch
+            allTasks = try context.fetch(fetchRequest)
+        } catch {
+            print("Core Data load failure")
+        }
+    
+        // When app is being reopened
+    }
+    
     override var preferredStatusBarStyle : UIStatusBarStyle {
         return .lightContent
     }

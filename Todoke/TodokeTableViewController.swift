@@ -16,6 +16,7 @@ class TodokeTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.backgroundColor = UIColor.lead()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -84,6 +85,9 @@ class TodokeTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
         cell.textLabel?.text = allTasks[indexPath.row].value(forKey: "title") as? String
+        cell.backgroundColor = UIColor.lead()
+        cell.textLabel?.textColor = UIColor.white
+        cell.accessoryView?.tintColor = UIColor.darkGray
         return cell
     }
 }
@@ -92,5 +96,11 @@ extension UINavigationController {
     // Ask top controller for its status bar style and update accordingly
     open override var preferredStatusBarStyle: UIStatusBarStyle {
         return topViewController?.preferredStatusBarStyle ?? .default
+    }
+}
+
+extension UIColor {
+    class func lead() -> UIColor {
+        return UIColor(red: 25/255, green: 25/255, blue: 25/255, alpha: 1.0)
     }
 }

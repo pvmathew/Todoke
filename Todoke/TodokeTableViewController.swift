@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 
 class TodokeTableViewController: UITableViewController {
@@ -16,6 +17,20 @@ class TodokeTableViewController: UITableViewController {
     
     override var preferredStatusBarStyle : UIStatusBarStyle {
         return .lightContent
+    }
+    
+    @IBAction func addButton(_ sender: UIBarButtonItem) {
+        let alert = UIAlertController(title: "Add Task", message: "What needs doing?", preferredStyle: .alert)
+        let addAction = UIAlertAction(title: "Add", style: .default, handler: self.saveTask)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(addAction)
+        alert.addAction(cancelAction)
+        alert.addTextField(configurationHandler: { (textField) in textField.placeholder = "Enter task here"}) //**
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func saveTask(alert: UIAlertAction!) {
+        
     }
 }
 

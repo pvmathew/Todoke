@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		D0DBA6C62245F7E000729F39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DBA6C52245F7E000729F39 /* AppDelegate.swift */; };
-		D0DBA6C82245F7E000729F39 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DBA6C72245F7E000729F39 /* ViewController.swift */; };
 		D0DBA6CB2245F7E000729F39 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0DBA6C92245F7E000729F39 /* Main.storyboard */; };
 		D0DBA6CD2245F7E100729F39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0DBA6CC2245F7E100729F39 /* Assets.xcassets */; };
 		D0DBA6D02245F7E100729F39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0DBA6CE2245F7E100729F39 /* LaunchScreen.storyboard */; };
 		D0DBA6DB2245F7E100729F39 /* TodokeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DBA6DA2245F7E100729F39 /* TodokeTests.swift */; };
 		D0DBA6E62245F7E100729F39 /* TodokeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DBA6E52245F7E100729F39 /* TodokeUITests.swift */; };
+		D0DBA6F42246020600729F39 /* TodokeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DBA6F32246020600729F39 /* TodokeTableViewController.swift */; };
+		D0DBA6F92246363C00729F39 /* Todoke.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D0DBA6F72246363C00729F39 /* Todoke.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +37,6 @@
 /* Begin PBXFileReference section */
 		D0DBA6C22245F7E000729F39 /* Todoke.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todoke.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0DBA6C52245F7E000729F39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D0DBA6C72245F7E000729F39 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D0DBA6CA2245F7E000729F39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D0DBA6CC2245F7E100729F39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D0DBA6CF2245F7E100729F39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +47,8 @@
 		D0DBA6E12245F7E100729F39 /* TodokeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodokeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0DBA6E52245F7E100729F39 /* TodokeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodokeUITests.swift; sourceTree = "<group>"; };
 		D0DBA6E72245F7E100729F39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0DBA6F32246020600729F39 /* TodokeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodokeTableViewController.swift; sourceTree = "<group>"; };
+		D0DBA6F82246363C00729F39 /* Todoke.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Todoke.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				D0DBA6C32245F7E000729F39 /* Products */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		D0DBA6C32245F7E000729F39 /* Products */ = {
 			isa = PBXGroup;
@@ -98,7 +101,8 @@
 			isa = PBXGroup;
 			children = (
 				D0DBA6C52245F7E000729F39 /* AppDelegate.swift */,
-				D0DBA6C72245F7E000729F39 /* ViewController.swift */,
+				D0DBA6F32246020600729F39 /* TodokeTableViewController.swift */,
+				D0DBA6F72246363C00729F39 /* Todoke.xcdatamodeld */,
 				D0DBA6C92245F7E000729F39 /* Main.storyboard */,
 				D0DBA6CC2245F7E100729F39 /* Assets.xcassets */,
 				D0DBA6CE2245F7E100729F39 /* LaunchScreen.storyboard */,
@@ -256,8 +260,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D0DBA6C82245F7E000729F39 /* ViewController.swift in Sources */,
+				D0DBA6F92246363C00729F39 /* Todoke.xcdatamodeld in Sources */,
 				D0DBA6C62245F7E000729F39 /* AppDelegate.swift in Sources */,
+				D0DBA6F42246020600729F39 /* TodokeTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,7 +447,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.pavinmathew.Todoke;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -460,7 +465,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.pavinmathew.Todoke;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -586,6 +591,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D0DBA6F72246363C00729F39 /* Todoke.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D0DBA6F82246363C00729F39 /* Todoke.xcdatamodel */,
+			);
+			currentVersion = D0DBA6F82246363C00729F39 /* Todoke.xcdatamodel */;
+			path = Todoke.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = D0DBA6BA2245F7E000729F39 /* Project object */;
 }

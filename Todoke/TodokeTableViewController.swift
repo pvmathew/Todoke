@@ -19,18 +19,36 @@ class TodokeTableViewController: UITableViewController {
         return .lightContent
     }
     
+    var taskTextField: UITextField!
+    
     @IBAction func addButton(_ sender: UIBarButtonItem) {
         let alert = UIAlertController(title: "Add Task", message: "What needs doing?", preferredStyle: .alert)
         let addAction = UIAlertAction(title: "Add", style: .default, handler: self.saveTask)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alert.addAction(addAction)
         alert.addAction(cancelAction)
-        alert.addTextField(configurationHandler: { (textField) in textField.placeholder = "Enter task here"}) //**
+        alert.addTextField(configurationHandler: { (textField) in
+            self.taskTextField = textField
+            textField.placeholder = "Enter task here"}) //**
         self.present(alert, animated: true, completion: nil)
     }
     
     func saveTask(alert: UIAlertAction!) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "Task", in: context)!
         
+        // Create a task model object from entity and insert into context
+        let taskObject = NSManagedObject(entity: entity, insertInto: context)
+        // Set title value for task object
+        taskObject.setValue(taskTextField.text, forKey: "title")
+        
+        do {
+            // Save changes in context to write them to disk
+            try context.save()
+        } catch {
+            print("Core Data save failure")
+        }
     }
 }
 

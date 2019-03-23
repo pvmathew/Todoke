@@ -14,6 +14,12 @@ class TodokeTableViewController: UITableViewController {
     
     var allTasks: [NSManagedObject] = []
     
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .lightContent
+    }
+    
+    // MARK: - View Init
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.backgroundColor = UIColor.lead()
@@ -37,9 +43,7 @@ class TodokeTableViewController: UITableViewController {
         // When app is being reopened
     }
     
-    override var preferredStatusBarStyle : UIStatusBarStyle {
-        return .lightContent
-    }
+    // MARK: - New Task Functions
     
     var taskTextField: UITextField!
     
@@ -78,6 +82,8 @@ class TodokeTableViewController: UITableViewController {
         self.tableView.reloadData()
     }
     
+    // MARK: - Table View Functions
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return allTasks.count
     }
@@ -105,7 +111,12 @@ class TodokeTableViewController: UITableViewController {
             tableView.reloadData()
         }
     }
+    
+    // TODO: - Single button that deletes all tasks
+    // TODO: - Multiple pages/sections for different types of tasks
 }
+
+// MARK: - Extensions
 
 extension UINavigationController {
     // Ask top controller for its status bar style and update accordingly

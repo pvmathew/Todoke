@@ -97,6 +97,8 @@ class TodokeTableViewController: UITableViewController {
         return cell
     }
     
+    // MARK: - Remove Task Functions
+    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == UITableViewCell.EditingStyle.delete) {
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -112,7 +114,16 @@ class TodokeTableViewController: UITableViewController {
         }
     }
     
-    // TODO: - Single button that deletes all tasks
+    @IBAction func clearAll(_ sender: UIBarButtonItem) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        for task in allTasks {
+            context.delete(task)
+        }
+        allTasks.removeAll()
+        tableView.reloadData()
+    }
+    
     // TODO: - Multiple pages/sections for different types of tasks
     // TODO: - Settings menu with option to change theme
     // TODO: - DatePickerView to set deadline  tasks

@@ -106,6 +106,7 @@ class TodokeTableViewController: UITableViewController {
         cell.textLabel?.textColor = UIColor.white
         cell.detailTextLabel?.textColor = UIColor.lightGray
         cell.accessoryView?.tintColor = UIColor.darkGray
+        
         return cell
     }
     
@@ -135,10 +136,12 @@ class TodokeTableViewController: UITableViewController {
     // MARK: - Time Set Functions
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.view.addSubview(pickerView)
+        view.bringSubviewToFront(pickerView)
+        self.pickerView.isHidden = false
     }
     
     func timePickerSetup () {
+        print("test")
         // Create a datePicker object that points to target "timeChanged"
         picker.datePickerMode = .time
         
@@ -159,6 +162,8 @@ class TodokeTableViewController: UITableViewController {
         let pickerFrame = CGRect(x: 0.0, y: 40.0, width: view.frame.width , height: 240)
         picker.frame = pickerFrame
         pickerView.addSubview(picker)
+        pickerView.isHidden = true
+        view.addSubview(pickerView)
         
         dateFormatter.dateFormat = "h:mm a"
         dateFormatter.amSymbol = "AM"
@@ -178,11 +183,13 @@ class TodokeTableViewController: UITableViewController {
         }
         
         tableView.reloadData()
-        pickerView.removeFromSuperview()
+        pickerView.isHidden = true
     }
     
+    // TODO: - Make pickerView slide-in with animation
+    // TODO: - Fix delayed appearance of pickerView
     // TODO: - Multiple pages/sections for different types of tasks
-    // TODO: - Settings menu with option to change theme
+    // TODO: - Settings menu with option to change theme to light
 }
 
     // MARK: - Extensions

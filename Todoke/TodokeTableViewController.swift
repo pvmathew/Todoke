@@ -130,6 +130,7 @@ class TodokeTableViewController: UITableViewController {
             context.delete(task)
         }
         allTasks.removeAll()
+        pickerView.isHidden = true
         tableView.reloadData()
     }
     
@@ -187,7 +188,6 @@ class TodokeTableViewController: UITableViewController {
     }
     
     // TODO: - Make pickerView slide-in with animation
-    // TODO: - Fix delayed appearance of pickerView
     // TODO: - Multiple pages/sections for different types of tasks
     // TODO: - Settings menu with option to change theme to light
 }

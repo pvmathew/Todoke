@@ -167,10 +167,18 @@ class TodokeTableViewController: UITableViewController {
     }
     
     @objc func timePickingFinished(sender: UIButton) {
-        // TODO: - Save picker.date to Task object and reload tableView
+        // Save picker.date to Task object and reload tableView
+        let lastIndexPath = self.tableView.indexPathForSelectedRow
+        allTasks[lastIndexPath!.row].setValue(picker.date, forKey: "time")
         
+        do {
+            try context.save()
+        } catch {
+            print("Core Data save failure")
+        }
         
-        self.pickerView.removeFromSuperview()
+        tableView.reloadData()
+        pickerView.removeFromSuperview()
     }
     
     // TODO: - Multiple pages/sections for different types of tasks

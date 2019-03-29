@@ -15,6 +15,10 @@ class TodokeTableViewController: UITableViewController {
     var allTasks: [NSManagedObject] = []
     let context = AppDelegate.persistentContainer.viewContext
     
+    let picker = UIDatePicker()
+    var pickerView = UIView()
+    let dateFormatter = DateFormatter()
+
     override var preferredStatusBarStyle : UIStatusBarStyle {
         return .lightContent
     }
@@ -24,6 +28,7 @@ class TodokeTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.backgroundColor = UIColor.lead()
+        timePickerSetup()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -92,6 +97,7 @@ class TodokeTableViewController: UITableViewController {
         cell.textLabel?.text = allTasks[indexPath.row].value(forKey: "title") as? String
         cell.backgroundColor = UIColor.lead()
         cell.textLabel?.textColor = UIColor.white
+        cell.detailTextLabel?.textColor = UIColor.lightGray
         cell.accessoryView?.tintColor = UIColor.darkGray
         return cell
     }
@@ -119,9 +125,48 @@ class TodokeTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
+    // MARK: - Time Set Functions
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.view.addSubview(pickerView)
+    }
+    
+    func timePickerSetup () {
+        // Create a datePicker object that points to target "timeChanged"
+        picker.datePickerMode = .time
+        
+        // Set frame to be size that fits width of device
+        pickerView = UIView(frame: CGRect(x: 0.0, y: view.frame.height - topbarHeight - 280, width: view.frame.width , height: 280))
+        pickerView.backgroundColor = UIColor.white
+        pickerView.alpha = 0.7
+
+        let toolbarArea = UIView(frame: CGRect(x: 0.0, y: 0.0, width: view.frame.width, height: 50))
+        pickerView.addSubview(toolbarArea)
+        
+        let doneButton = UIButton(frame: CGRect(x: view.frame.width - 70.0 , y: 0.0, width: 60.0, height: 50.0))
+        doneButton.setTitle("Done", for: .normal)
+        doneButton.setTitleColor(.appleBlue(), for: .normal)
+        doneButton.addTarget(self, action: #selector(self.timePickingFinished(sender:)), for: .touchUpInside)
+        pickerView.addSubview(doneButton)
+        
+        let pickerFrame = CGRect(x: 0.0, y: 40.0, width: view.frame.width , height: 240)
+        picker.frame = pickerFrame
+        pickerView.addSubview(picker)
+        
+        dateFormatter.dateFormat = "HH:mm a"
+        dateFormatter.amSymbol = "AM"
+        dateFormatter.pmSymbol = "PM"
+        
+    }
+    
+    @objc func timePickingFinished(sender: UIButton) {
+        // TODO: - Save picker.date to Task object, have it be so date is set to detailtext label, and reload tableView
+        
+        self.pickerView.removeFromSuperview()
+    }
+    
     // TODO: - Multiple pages/sections for different types of tasks
     // TODO: - Settings menu with option to change theme
-    // TODO: - DatePickerView to set deadline  tasks
 }
 
     // MARK: - Extensions
@@ -137,4 +182,16 @@ extension UIColor {
     class func lead() -> UIColor {
         return UIColor(red: 25/255, green: 25/255, blue: 25/255, alpha: 1.0)
     }
+    class func appleBlue() -> UIColor {
+        return UIColor(red: 14.0/255, green: 144.0/255, blue: 254.0/255, alpha: 1.0)
+    }
 }
+
+extension UIViewController {
+    // Grabs height of status bar + navigation bar
+    var topbarHeight: CGFloat {
+        return UIApplication.shared.statusBarFrame.size.height +
+            (self.navigationController?.navigationBar.frame.height ?? 0.0)
+    }
+}
+

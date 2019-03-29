@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		D0811EAB22465701003F0679 /* raccoon.png in Resources */ = {isa = PBXBuildFile; fileRef = D0811EAA22465701003F0679 /* raccoon.png */; };
+		D0811EAF224DB24A003F0679 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0811EAE224DB24A003F0679 /* LaunchScreen.storyboard */; };
 		D0DBA6C62245F7E000729F39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DBA6C52245F7E000729F39 /* AppDelegate.swift */; };
 		D0DBA6CB2245F7E000729F39 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0DBA6C92245F7E000729F39 /* Main.storyboard */; };
 		D0DBA6CD2245F7E100729F39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0DBA6CC2245F7E100729F39 /* Assets.xcassets */; };
-		D0DBA6D02245F7E100729F39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0DBA6CE2245F7E100729F39 /* LaunchScreen.storyboard */; };
 		D0DBA6DB2245F7E100729F39 /* TodokeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DBA6DA2245F7E100729F39 /* TodokeTests.swift */; };
 		D0DBA6E62245F7E100729F39 /* TodokeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DBA6E52245F7E100729F39 /* TodokeUITests.swift */; };
 		D0DBA6F42246020600729F39 /* TodokeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DBA6F32246020600729F39 /* TodokeTableViewController.swift */; };
@@ -37,11 +37,11 @@
 
 /* Begin PBXFileReference section */
 		D0811EAA22465701003F0679 /* raccoon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = raccoon.png; sourceTree = "<group>"; };
+		D0811EAE224DB24A003F0679 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D0DBA6C22245F7E000729F39 /* Todoke.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todoke.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0DBA6C52245F7E000729F39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0DBA6CA2245F7E000729F39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D0DBA6CC2245F7E100729F39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		D0DBA6CF2245F7E100729F39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D0DBA6D12245F7E100729F39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0DBA6D62245F7E100729F39 /* TodokeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodokeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0DBA6DA2245F7E100729F39 /* TodokeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodokeTests.swift; sourceTree = "<group>"; };
@@ -102,13 +102,13 @@
 		D0DBA6C42245F7E000729F39 /* Todoke */ = {
 			isa = PBXGroup;
 			children = (
+				D0811EAE224DB24A003F0679 /* LaunchScreen.storyboard */,
 				D0DBA6C52245F7E000729F39 /* AppDelegate.swift */,
 				D0DBA6F32246020600729F39 /* TodokeTableViewController.swift */,
 				D0DBA6F72246363C00729F39 /* Todoke.xcdatamodeld */,
 				D0DBA6C92245F7E000729F39 /* Main.storyboard */,
 				D0DBA6CC2245F7E100729F39 /* Assets.xcassets */,
 				D0811EAA22465701003F0679 /* raccoon.png */,
-				D0DBA6CE2245F7E100729F39 /* LaunchScreen.storyboard */,
 				D0DBA6D12245F7E100729F39 /* Info.plist */,
 			);
 			path = Todoke;
@@ -236,8 +236,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D0DBA6D02245F7E100729F39 /* LaunchScreen.storyboard in Resources */,
 				D0DBA6CD2245F7E100729F39 /* Assets.xcassets in Resources */,
+				D0811EAF224DB24A003F0679 /* LaunchScreen.storyboard in Resources */,
 				D0DBA6CB2245F7E000729F39 /* Main.storyboard in Resources */,
 				D0811EAB22465701003F0679 /* raccoon.png in Resources */,
 			);
@@ -308,14 +308,6 @@
 				D0DBA6CA2245F7E000729F39 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		D0DBA6CE2245F7E100729F39 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D0DBA6CF2245F7E100729F39 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

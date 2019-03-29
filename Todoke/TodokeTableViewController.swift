@@ -72,14 +72,12 @@ class TodokeTableViewController: UITableViewController {
         do {
             // Save changes in context to write them to disk
             try context.save()
-            // And add newly created task object to array allTasks
+        // And add newly created task object to array allTasks
             allTasks.append(taskObject)
         } catch {
             print("Core Data save failure")
         }
         
-        // Table feed needs to be reloaded after adding a new task
-        self.tableView.reloadData()
     }
     
     // MARK: - Table View Functions
@@ -114,6 +112,8 @@ class TodokeTableViewController: UITableViewController {
     
     // TODO: - Single button that deletes all tasks
     // TODO: - Multiple pages/sections for different types of tasks
+    // TODO: - Settings menu with option to change theme
+    // TODO: - DatePickerView to set deadline  tasks
 }
 
     // MARK: - Extensions

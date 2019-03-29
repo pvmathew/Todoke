@@ -64,8 +64,6 @@ class TodokeTableViewController: UITableViewController {
     }
     
     func saveTask(alert: UIAlertAction!) {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "Task", in: context)!
         
         // Create a task model object from entity and insert into context
@@ -95,6 +93,15 @@ class TodokeTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
         cell.textLabel?.text = allTasks[indexPath.row].value(forKey: "title") as? String
+        
+        // If time exists, set it to be the detail text label
+        if let dateFromObject = allTasks[indexPath.row].value(forKey: "time") as? Date {
+            let dateString = dateFormatter.string(from: dateFromObject)
+            cell.detailTextLabel?.text = dateString
+        } else {
+            print("there was no date found")
+        }
+
         cell.backgroundColor = UIColor.lead()
         cell.textLabel?.textColor = UIColor.white
         cell.detailTextLabel?.textColor = UIColor.lightGray
@@ -160,7 +167,8 @@ class TodokeTableViewController: UITableViewController {
     }
     
     @objc func timePickingFinished(sender: UIButton) {
-        // TODO: - Save picker.date to Task object, have it be so date is set to detailtext label, and reload tableView
+        // TODO: - Save picker.date to Task object and reload tableView
+        
         
         self.pickerView.removeFromSuperview()
     }

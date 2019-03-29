@@ -13,6 +13,7 @@ import CoreData
 class TodokeTableViewController: UITableViewController {
     
     var allTasks: [NSManagedObject] = []
+    let context = AppDelegate.persistentContainer.viewContext
     
     override var preferredStatusBarStyle : UIStatusBarStyle {
         return .lightContent
@@ -28,8 +29,6 @@ class TodokeTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
         // Define fetch request for Task objects
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Task")
         
@@ -101,8 +100,6 @@ class TodokeTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == UITableViewCell.EditingStyle.delete) {
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            let context = appDelegate.persistentContainer.viewContext
             context.delete(allTasks[indexPath.row])
             allTasks.remove(at: indexPath.row)
             do {
@@ -115,8 +112,6 @@ class TodokeTableViewController: UITableViewController {
     }
     
     @IBAction func clearAll(_ sender: UIBarButtonItem) {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
         for task in allTasks {
             context.delete(task)
         }

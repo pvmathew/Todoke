@@ -78,6 +78,8 @@ class TodokeTableViewController: UITableViewController {
             print("Core Data save failure")
         }
         
+        tableView.reloadData()
+        
     }
     
     // MARK: - Table View Functions

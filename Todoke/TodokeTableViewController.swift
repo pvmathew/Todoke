@@ -130,7 +130,7 @@ class TodokeTableViewController: UITableViewController {
             context.delete(task)
         }
         allTasks.removeAll()
-        pickerView.isHidden = true
+        pickerView.hide()
         tableView.reloadData()
     }
     
@@ -138,7 +138,7 @@ class TodokeTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         view.bringSubviewToFront(pickerView)
-        self.pickerView.isHidden = false
+        pickerView.show()
     }
     
     func timePickerSetup () {
@@ -147,7 +147,7 @@ class TodokeTableViewController: UITableViewController {
         picker.datePickerMode = .time
         
         // Set frame to be size that fits width of device
-        pickerView = UIView(frame: CGRect(x: 0.0, y: view.frame.height - topbarHeight - 280, width: view.frame.width , height: 280))
+        pickerView = UIView(frame: CGRect(x: 0.0, y: view.frame.height - topbarHeight, width: view.frame.width , height: 280))
         pickerView.backgroundColor = UIColor.white
         pickerView.alpha = 0.7
 
@@ -184,10 +184,10 @@ class TodokeTableViewController: UITableViewController {
         }
         
         tableView.reloadData()
-        pickerView.isHidden = true
+        pickerView.hide()
     }
     
-    // TODO: - Make pickerView slide-in with animation
+    // TODO: - Make pickerView slide-in with animation: https://stackoverflow.com/questions/42326892/uiview-appereance-from-bottom-to-top-and-vice-versacore-animation
     // TODO: - Multiple pages/sections for different types of tasks
     // TODO: - Settings menu with option to change theme to light
 }
@@ -218,3 +218,23 @@ extension UIViewController {
     }
 }
 
+extension UIView{
+    func show(){
+        UIView.animate(withDuration: 0.5, delay: 0, options: [.curveEaseIn],
+                       animations: {
+                        self.center.y -= self.bounds.height
+                        self.layoutIfNeeded()
+        }, completion: nil)
+        self.isHidden = false
+    }
+    func hide(){
+        UIView.animate(withDuration: 0.5, delay: 0, options: [.curveEaseIn],
+                       animations: {
+                        self.center.y += self.bounds.height
+                        self.layoutIfNeeded()
+                        
+        },  completion: {(_ completed: Bool) -> Void in
+            self.isHidden = true
+        })
+    }
+}

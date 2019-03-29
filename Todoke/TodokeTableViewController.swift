@@ -187,7 +187,6 @@ class TodokeTableViewController: UITableViewController {
         pickerView.hide()
     }
     
-    // TODO: - Make pickerView slide-in with animation: https://stackoverflow.com/questions/42326892/uiview-appereance-from-bottom-to-top-and-vice-versacore-animation
     // TODO: - Multiple pages/sections for different types of tasks
     // TODO: - Settings menu with option to change theme to light
 }
@@ -220,7 +219,7 @@ extension UIViewController {
 
 extension UIView{
     func show(){
-        UIView.animate(withDuration: 0.5, delay: 0, options: [.curveEaseIn],
+        UIView.animate(withDuration: 0.4, delay: 0, options: [.curveEaseInOut],
                        animations: {
                         self.center.y -= self.bounds.height
                         self.layoutIfNeeded()
@@ -228,7 +227,7 @@ extension UIView{
         self.isHidden = false
     }
     func hide(){
-        UIView.animate(withDuration: 0.5, delay: 0, options: [.curveEaseIn],
+        UIView.animate(withDuration: 0.4, delay: 0, options: [.curveEaseInOut],
                        animations: {
                         self.center.y += self.bounds.height
                         self.layoutIfNeeded()

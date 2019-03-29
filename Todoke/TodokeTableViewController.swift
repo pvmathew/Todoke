@@ -160,7 +160,7 @@ class TodokeTableViewController: UITableViewController {
         picker.frame = pickerFrame
         pickerView.addSubview(picker)
         
-        dateFormatter.dateFormat = "HH:mm a"
+        dateFormatter.dateFormat = "h:mm a"
         dateFormatter.amSymbol = "AM"
         dateFormatter.pmSymbol = "PM"
         

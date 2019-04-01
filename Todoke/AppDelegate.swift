@@ -26,6 +26,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Set title color
         navBarAppearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
         
+        // Create containerViewController and set it as root
+        let containerViewController = ContainerViewController()
+        
+        window!.rootViewController = containerViewController
+        window!.makeKeyAndVisible()
+        
         return true
     }
 

@@ -31,6 +31,16 @@ import QuartzCore
 
 class ContainerViewController: UIViewController {
     
+    // To help keep track of the current state of the side panels
+    enum SlideOutState {
+        case leftPanelCollapsed
+        case leftPanelExpanded
+    }
+    
+    var currentState: SlideOutState = .leftPanelCollapsed
+    // Since the side menu view controller will be added and removed at various times, it might not always have a value
+    var leftViewController: SidePanelViewController?
+    
     var centerViewController: TodokeTableViewController!
     var centerNavigationController: UINavigationController!
     
@@ -52,7 +62,7 @@ class ContainerViewController: UIViewController {
         // Push the navigationControllerView onto containerViewController's view
         view.addSubview(centerNavigationController.view)
         // Set centerNavigationController to be containerViewController's child
-        // This means that it'll be responsible for handling events when containerviewController tells it to
+        // This means that it'll be responsible for handling events when containerViewController tells it to
         addChild(centerNavigationController)
         centerNavigationController.didMove(toParent: self)
         
@@ -63,10 +73,10 @@ private extension UIStoryboard {
   
     static func mainStoryboard() -> UIStoryboard { return UIStoryboard(name: "Main", bundle: Bundle.main) }
   
-//    static func leftViewController() -> SidePanelViewController? {
-//        return mainStoryboard().instantiateViewController(withIdentifier: "LeftViewController") as? SidePanelViewController
-//    }
-//
+    static func leftViewController() -> SidePanelViewController? {
+        return mainStoryboard().instantiateViewController(withIdentifier: "LeftViewController") as? SidePanelViewController
+    }
+
 //    static func rightViewController() -> SidePanelViewController? {
 //        return mainStoryboard().instantiateViewController(withIdentifier: "RightViewController") as? SidePanelViewController
 //    }
@@ -81,12 +91,36 @@ private extension UIStoryboard {
 extension ContainerViewController: TodokeTableViewControllerDelegate {
     
     func toggleLeftPanel() {
+        if (currentState == .leftPanelCollapsed) {
+            // Add side panel view controller and expand
+            addLeftPanelViewController()
+            animateLeftPanel(shouldExpand: true)
+        } else {
+            // Re-hide mentu
+            animateLeftPanel(shouldExpand: false)
+        }
     }
     
     func toggleRightPanel() {
     }
     
     func addLeftPanelViewController() {
+        // Make sure left panel VC hasn't been made yet
+        guard leftViewController == nil else { return }
+        
+        //Then make it and add it as a child
+        if let vc = UIStoryboard.leftViewController() {
+            addChildSidePanelController(vc)
+            leftViewController = vc
+        }
+    }
+    
+    func addChildSidePanelController(_ sidePanelController: SidePanelViewController) {
+        // Insert side panel view under center view controller's view (z-index = 0)
+        view.insertSubview(sidePanelController.view, at: 0)
+        // Set it to be child of container view controller
+        addChild(sidePanelController)
+        sidePanelController.didMove(toParent: self)
     }
     
     func addRightPanelViewController() {

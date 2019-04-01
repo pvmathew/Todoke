@@ -29,8 +29,13 @@ class TodokeTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tableView.backgroundColor = UIColor.lead()
         timePickerSetup()
+        
+        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(openMenu(sender:)))
+        view.addGestureRecognizer(rightSwipe)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -186,8 +191,13 @@ class TodokeTableViewController: UITableViewController {
         pickerView.hide()
     }
     
+    // MARK: - Menu Functions
+    
+    @objc func openMenu(sender: UISwipeGestureRecognizer) {
+        print("hi")
+    }
+    
     // TODO: - Multiple pages/sections for different types of tasks
-    // TODO: - Settings menu with option to change theme to light
 }
 
     // MARK: - Extensions

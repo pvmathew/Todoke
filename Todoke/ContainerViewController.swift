@@ -41,6 +41,9 @@ class ContainerViewController: UIViewController {
     // Since the side menu view controller will be added and removed at various times, it might not always have a value
     var leftViewController: SidePanelViewController?
     
+    // The width in points that the original center view will be left visible after swipe
+    let centerPanelExpandedOffset: CGFloat = 60
+    
     var centerViewController: TodokeTableViewController!
     var centerNavigationController: UINavigationController!
     
@@ -127,7 +130,33 @@ extension ContainerViewController: TodokeTableViewControllerDelegate {
     }
     
     func animateLeftPanel(shouldExpand: Bool) {
+        if shouldExpand {
+            // Set state to open
+            currentState = .leftPanelExpanded
+            // Animate opening
+            animateCenterPanelXPosition(targetPosition: centerNavigationController.view.frame.width - centerPanelExpandedOffset)
+            
+        } else {
+            animateCenterPanelXPosition(targetPosition: 0) { finished in
+                // Set state to closed
+                self.currentState = .leftPanelCollapsed
+                // Remove view and delete previous instance of the view controller
+                self.leftViewController?.view.removeFromSuperview()
+                self.leftViewController = nil
+            }
+        }
     }
+    
+    func animateCenterPanelXPosition(targetPosition: CGFloat, completion: ((Bool) -> Void)? = nil) {
+        UIView.animate(withDuration: 0.5,
+                       delay: 0,
+                       usingSpringWithDamping: 0.8,
+                       initialSpringVelocity: 0,
+                       options: .curveEaseInOut, animations: {
+                        self.centerNavigationController.view.frame.origin.x = targetPosition
+        }, completion: completion)
+    }
+
     
     func animateRightPanel(shouldExpand: Bool) {
     }

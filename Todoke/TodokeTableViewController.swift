@@ -195,7 +195,6 @@ class TodokeTableViewController: UITableViewController {
     
     @objc func openMenu(sender: UISwipeGestureRecognizer) {
         delegate?.toggleLeftPanel?()
-
     }
     
     // TODO: - Multiple pages/sections for different types of tasks

@@ -104,15 +104,13 @@ extension ContainerViewController: TodokeTableViewControllerDelegate {
         }
     }
     
-    func toggleRightPanel() {
-    }
-    
     func addLeftPanelViewController() {
         // Make sure left panel VC hasn't been made yet
         guard leftViewController == nil else { return }
         
         //Then make it and add it as a child
         if let vc = UIStoryboard.leftViewController() {
+            leftViewController?.delegate = self
             addChildSidePanelController(vc)
             leftViewController = vc
         }
@@ -124,9 +122,6 @@ extension ContainerViewController: TodokeTableViewControllerDelegate {
         // Set it to be child of container view controller
         addChild(sidePanelController)
         sidePanelController.didMove(toParent: self)
-    }
-    
-    func addRightPanelViewController() {
     }
     
     func animateLeftPanel(shouldExpand: Bool) {
@@ -156,10 +151,7 @@ extension ContainerViewController: TodokeTableViewControllerDelegate {
                         self.centerNavigationController.view.frame.origin.x = targetPosition
         }, completion: completion)
     }
-
     
-    func animateRightPanel(shouldExpand: Bool) {
-    }
 }
 
 extension UINavigationController {

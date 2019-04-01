@@ -94,6 +94,7 @@ private extension UIStoryboard {
 extension ContainerViewController: TodokeTableViewControllerDelegate {
     
     func toggleLeftPanel() {
+        print(#function)
         if (currentState == .leftPanelCollapsed) {
             // Add side panel view controller and expand
             addLeftPanelViewController()
@@ -110,7 +111,7 @@ extension ContainerViewController: TodokeTableViewControllerDelegate {
         
         //Then make it and add it as a child
         if let vc = UIStoryboard.leftViewController() {
-            leftViewController?.delegate = self
+            vc.delegate = self
             addChildSidePanelController(vc)
             leftViewController = vc
         }

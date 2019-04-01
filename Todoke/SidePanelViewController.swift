@@ -44,7 +44,7 @@ class SidePanelViewController: UIViewController {
     }
     
     @objc func closeMenu(sender: UISwipeGestureRecognizer) {
-        print("you swiped left on the menu")
+        delegate?.toggleLeftPanel?()
     }
 }
 

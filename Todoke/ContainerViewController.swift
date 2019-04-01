@@ -33,7 +33,11 @@ class ContainerViewController: UIViewController {
     
     var centerViewController: TodokeTableViewController!
     var centerNavigationController: UINavigationController!
-    	
+    
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -92,5 +96,12 @@ extension ContainerViewController: TodokeTableViewControllerDelegate {
     }
     
     func animateRightPanel(shouldExpand: Bool) {
+    }
+}
+
+extension UINavigationController {
+    // Ask top controller for its status bar style and update accordingly
+    open override var preferredStatusBarStyle: UIStatusBarStyle {
+        return topViewController?.preferredStatusBarStyle ?? .default
     }
 }

@@ -30,7 +30,8 @@ import UIKit
 
 @objc
 protocol TodokeTableViewControllerDelegate{
-  @objc optional func toggleLeftPanel()
-  @objc optional func toggleRightPanel()
-  @objc optional func collapseSidePanels()
+    // These are the functions that a delegate to TTVC would adhere to
+    @objc optional func toggleLeftPanel()
+    @objc optional func toggleRightPanel()
+    @objc optional func collapseSidePanels()
 }

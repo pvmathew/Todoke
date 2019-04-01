@@ -194,20 +194,14 @@ class TodokeTableViewController: UITableViewController {
     // MARK: - Menu Functions
     
     @objc func openMenu(sender: UISwipeGestureRecognizer) {
-        print("hi")
+        delegate?.toggleLeftPanel?()
+
     }
     
     // TODO: - Multiple pages/sections for different types of tasks
 }
 
     // MARK: - Extensions
-
-extension UINavigationController {
-    // Ask top controller for its status bar style and update accordingly
-    open override var preferredStatusBarStyle: UIStatusBarStyle {
-        return topViewController?.preferredStatusBarStyle ?? .default
-    }
-}
 
 extension UIColor {
     class func lead() -> UIColor {

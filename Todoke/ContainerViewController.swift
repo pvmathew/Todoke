@@ -30,25 +30,67 @@ import UIKit
 import QuartzCore
 
 class ContainerViewController: UIViewController {
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-  }
+    
+    var centerViewController: TodokeTableViewController!
+    var centerNavigationController: UINavigationController!
+    	
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Create centerViewController
+        centerViewController = UIStoryboard.centerViewController()
+        // Set it's delegate to be containerViewController
+        // This way, it can tell containerViewController when to show and hide the side panels
+        centerViewController.delegate = self
+        
+        // Wrap centerViewController into a navigationController so views can be pushed to it
+        centerNavigationController = UINavigationController(rootViewController: centerViewController)
+        // Push the navigationControllerView onto containerViewController's view
+        view.addSubview(centerNavigationController.view)
+        // Set centerNavigationController to be containerViewController's child
+        // This means that it'll be responsible for handling events when containerviewController tells it to
+        addChild(centerNavigationController)
+        centerNavigationController.didMove(toParent: self)
+        
+    }
 }
 
 private extension UIStoryboard {
   
-  static func mainStoryboard() -> UIStoryboard { return UIStoryboard(name: "Main", bundle: Bundle.main) }
+    static func mainStoryboard() -> UIStoryboard { return UIStoryboard(name: "Main", bundle: Bundle.main) }
   
-  static func leftViewController() -> SidePanelViewController? {
-    return mainStoryboard().instantiateViewController(withIdentifier: "LeftViewController") as? SidePanelViewController
-  }
+//    static func leftViewController() -> SidePanelViewController? {
+//        return mainStoryboard().instantiateViewController(withIdentifier: "LeftViewController") as? SidePanelViewController
+//    }
+//
+//    static func rightViewController() -> SidePanelViewController? {
+//        return mainStoryboard().instantiateViewController(withIdentifier: "RightViewController") as? SidePanelViewController
+//    }
   
-  static func rightViewController() -> SidePanelViewController? {
-    return mainStoryboard().instantiateViewController(withIdentifier: "RightViewController") as? SidePanelViewController
-  }
-  
-  static func centerViewController() -> CenterViewController? {
-    return mainStoryboard().instantiateViewController(withIdentifier: "CenterViewController") as? CenterViewController
-  }
+    static func centerViewController() -> TodokeTableViewController? {
+        return mainStoryboard().instantiateViewController(withIdentifier: "CenterViewController") as? TodokeTableViewController
+    }
+}
+
+// MARK: CenterViewController delegate
+
+extension ContainerViewController: TodokeTableViewControllerDelegate {
+    
+    func toggleLeftPanel() {
+    }
+    
+    func toggleRightPanel() {
+    }
+    
+    func addLeftPanelViewController() {
+    }
+    
+    func addRightPanelViewController() {
+    }
+    
+    func animateLeftPanel(shouldExpand: Bool) {
+    }
+    
+    func animateRightPanel(shouldExpand: Bool) {
+    }
 }

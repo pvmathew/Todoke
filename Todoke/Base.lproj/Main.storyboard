@@ -12,7 +12,7 @@
         <!--Todoke-->
         <scene sceneID="bup-Vc-Gye">
             <objects>
-                <tableViewController id="Pfb-VN-sVc" customClass="TodokeTableViewController" customModule="Todoke" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="CenterViewController" id="Pfb-VN-sVc" customClass="TodokeTableViewController" customModule="Todoke" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="0DY-z1-NWx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -69,6 +69,7 @@
         <!--Navigation Controller-->
         <scene sceneID="8Pr-H8-jIk">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NhQ-By-mc0" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Uek-qV-wEq" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1up-Pz-Qej">
@@ -80,7 +81,6 @@
                         <segue destination="Pfb-VN-sVc" kind="relationship" relationship="rootViewController" id="wX8-2a-kqg"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NhQ-By-mc0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="132" y="33.733133433283363"/>
         </scene>

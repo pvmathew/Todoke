@@ -18,6 +18,8 @@ class TodokeTableViewController: UITableViewController {
     let picker = UIDatePicker()
     var pickerView = UIView()
     let dateFormatter = DateFormatter()
+    
+    var delegate: TodokeTableViewControllerDelegate?
 
     override var preferredStatusBarStyle : UIStatusBarStyle {
         return .lightContent
@@ -98,8 +100,6 @@ class TodokeTableViewController: UITableViewController {
         if let dateFromObject = allTasks[indexPath.row].value(forKey: "time") as? Date {
             let dateString = dateFormatter.string(from: dateFromObject)
             cell.detailTextLabel?.text = dateString
-        } else {
-            print("there was no date found")
         }
 
         cell.backgroundColor = UIColor.lead()
@@ -142,7 +142,6 @@ class TodokeTableViewController: UITableViewController {
     }
     
     func timePickerSetup () {
-        print("test")
         // Create a datePicker object that points to target "timeChanged"
         picker.datePickerMode = .time
         

@@ -41,7 +41,7 @@ class SidePanelViewController: UIViewController {
         leftSwipe.direction = .left
         view.addGestureRecognizer(leftSwipe)
         
-        menuItems = ["Reorder Tasks", "Change Color Theme", "More Options"]
+        menuItems = ["Reorder Tasks", "Change Color Theme", "Preferences"]
         
         tableView.reloadData()
     }
@@ -61,6 +61,7 @@ extension SidePanelViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell", for: indexPath)
         cell.textLabel?.text = menuItems[indexPath.row]
+        
         return cell
     }
 }

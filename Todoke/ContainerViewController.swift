@@ -67,12 +67,11 @@ class ContainerViewController: UIViewController {
         // This way, it can tell containerViewController when to show and hide the side panels
         centerViewController.delegate = self
         
-        // Wrap centerViewController into a navigationController so views can be pushed to it
+        // Wrap centerViewController into a navigationController
         centerNavigationController = UINavigationController(rootViewController: centerViewController)
         // Push the navigationControllerView onto containerViewController's view
         view.addSubview(centerNavigationController.view)
         // Set centerNavigationController to be containerViewController's child
-        // This means that it'll be responsible for handling events now
         addChild(centerNavigationController)
         centerNavigationController.didMove(toParent: self)
         

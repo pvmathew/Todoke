@@ -32,6 +32,7 @@ class SidePanelViewController: UIViewController {
   
     @IBOutlet weak var tableView: UITableView!
     var delegate: TodokeTableViewControllerDelegate?
+    var menuItems = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +40,8 @@ class SidePanelViewController: UIViewController {
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(closeMenu(sender:)))
         leftSwipe.direction = .left
         view.addGestureRecognizer(leftSwipe)
+        
+        menuItems = ["Reorder Tasks", "Change Color Theme", "More Options"]
         
         tableView.reloadData()
     }
@@ -52,17 +55,28 @@ class SidePanelViewController: UIViewController {
 extension SidePanelViewController: UITableViewDataSource {
   
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return menuItems.count
     }
   
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Menu Cell", for: indexPath)
-    return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell", for: indexPath)
+        cell.textLabel?.text = menuItems[indexPath.row]
+        return cell
     }
 }
 // Mark: Table View Delegate
 
 extension SidePanelViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 0: // Reorder Items was selected
+            delegate?.enableReordering?()
+        case 1:
+            print("'Change Color Theme' was selected")
+        case 2:
+            print("'More Options' was selected")
+        default:
+            print("Nothing was selected")
+        }
     }
 }

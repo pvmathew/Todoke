@@ -53,7 +53,7 @@
                     <navigationItem key="navigationItem" title="Todoke" id="uCE-gO-dtp">
                         <barButtonItem key="leftBarButtonItem" title="Clear All" id="WDw-Yc-aSw">
                             <connections>
-                                <action selector="clearAll:" destination="Pfb-VN-sVc" id="nBz-Ph-59W"/>
+                                <action selector="leftBarButton:" destination="Pfb-VN-sVc" id="dmX-e2-Iix"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="PBt-1d-GBi">

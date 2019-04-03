@@ -85,10 +85,6 @@ private extension UIStoryboard {
     static func leftViewController() -> SidePanelViewController? {
         return mainStoryboard().instantiateViewController(withIdentifier: "LeftViewController") as? SidePanelViewController
     }
-
-//    static func rightViewController() -> SidePanelViewController? {
-//        return mainStoryboard().instantiateViewController(withIdentifier: "RightViewController") as? SidePanelViewController
-//    }
   
     static func centerViewController() -> TodokeTableViewController? {
         return mainStoryboard().instantiateViewController(withIdentifier: "CenterViewController") as? TodokeTableViewController
@@ -98,6 +94,12 @@ private extension UIStoryboard {
 // MARK: CenterViewController delegate
 
 extension ContainerViewController: TodokeTableViewControllerDelegate {
+    
+    func enableReordering() {
+        print("Reorder Items button was pressed")
+        toggleLeftPanel()
+        centerViewController.activateEditMode()
+    }
     
     func toggleLeftPanel() {
         print(#function)

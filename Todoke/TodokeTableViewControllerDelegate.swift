@@ -34,4 +34,5 @@ protocol TodokeTableViewControllerDelegate{
     @objc optional func toggleLeftPanel()
     @objc optional func toggleRightPanel()
     @objc optional func collapseSidePanels()
+    @objc optional func enableReordering()
 }

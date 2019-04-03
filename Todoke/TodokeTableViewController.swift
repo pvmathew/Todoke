@@ -114,7 +114,7 @@ class TodokeTableViewController: UITableViewController {
         return cell
     }
     
-    // MARK: - Remove Task Functions
+    // MARK: - Remove Task / Done Functions
     
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -133,13 +133,20 @@ class TodokeTableViewController: UITableViewController {
         }
     }
     
-    @IBAction func clearAll(_ sender: UIBarButtonItem) {
+    @IBAction func leftBarButton(_ sender: UIBarButtonItem) {
+        if (tableView.isEditing) { // If in edit-mode
+            navigationItem.leftBarButtonItem!.title = "Clear All"
+            navigationItem.leftBarButtonItem!.style = .plain
+            setEditing(false, animated: true)
+            return
+        } // Else go on and clear all
         for task in allTasks {
             context.delete(task)
         }
         allTasks.removeAll()
         pickerView.hide()
         tableView.reloadData()
+        
     }
     
     // MARK: - Time Set Functions
@@ -198,6 +205,29 @@ class TodokeTableViewController: UITableViewController {
     
     @objc func openMenu(sender: UISwipeGestureRecognizer) {
         delegate?.toggleLeftPanel?()
+    }
+    
+    // MARK: - Edit / Moving Mode Functions
+    
+    func activateEditMode() {
+        print("Edit mode is being turned on")
+        navigationItem.leftBarButtonItem!.title = "Done"
+        navigationItem.leftBarButtonItem!.style = .done
+        tableView.setEditing(true, animated: true)
+    }
+    
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .none
+    }
+    
+    override func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
+    
+    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let movedObject = self.allTasks[sourceIndexPath.row]
+        allTasks.remove(at: sourceIndexPath.row)
+        allTasks.insert(movedObject, at: destinationIndexPath.row)
     }
     
     // TODO: - Multiple pages/sections for different types of tasks

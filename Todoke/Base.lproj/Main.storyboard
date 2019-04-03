@@ -20,11 +20,11 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                         <color key="separatorColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="UITableViewCell" textLabel="Ogc-Tw-a09" detailTextLabel="Ahp-Hf-G9h" style="IBUITableViewCellStyleSubtitle" id="hUR-QV-3Un">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="UITableViewCell" textLabel="Ogc-Tw-a09" detailTextLabel="Ahp-Hf-G9h" style="IBUITableViewCellStyleSubtitle" id="hUR-QV-3Un">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hUR-QV-3Un" id="QX7-zT-aAb">
-                                    <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ogc-Tw-a09">
@@ -70,7 +70,7 @@
         <!--Left View Controller-->
         <scene sceneID="bR1-SN-EB0">
             <objects>
-                <viewController storyboardIdentifier="LeftViewController" title="Left View Controller" id="8og-BV-GbI" customClass="SidePanelViewController" customModule="SlideOutNavigation" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LeftViewController" title="Left View Controller" id="8og-BV-GbI" customClass="SidePanelViewController" customModule="Todoke" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ngo-pe-VHv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -142,7 +142,6 @@
         <!--Navigation Controller-->
         <scene sceneID="8Pr-H8-jIk">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NhQ-By-mc0" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Uek-qV-wEq" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1up-Pz-Qej">
@@ -154,6 +153,7 @@
                         <segue destination="Pfb-VN-sVc" kind="relationship" relationship="rootViewController" id="wX8-2a-kqg"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NhQ-By-mc0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="132" y="33.733133433283363"/>
         </scene>

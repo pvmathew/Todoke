@@ -37,7 +37,14 @@ class ContainerViewController: UIViewController {
         case leftPanelExpanded
     }
     
-    var currentState: SlideOutState = .leftPanelCollapsed
+    var currentState: SlideOutState = .leftPanelCollapsed {
+        didSet {
+            if (currentState == .leftPanelExpanded) {
+                let shouldShowShadow = true
+                showShadowBelowCenterViewController(shouldShowShadow)
+            }
+        }
+    }
     // Since the side menu view controller will be added and removed at various times, it might not always have a value
     var leftViewController: SidePanelViewController?
     
@@ -65,7 +72,7 @@ class ContainerViewController: UIViewController {
         // Push the navigationControllerView onto containerViewController's view
         view.addSubview(centerNavigationController.view)
         // Set centerNavigationController to be containerViewController's child
-        // This means that it'll be responsible for handling events when containerViewController tells it to
+        // This means that it'll be responsible for handling events now
         addChild(centerNavigationController)
         centerNavigationController.didMove(toParent: self)
         
@@ -153,7 +160,15 @@ extension ContainerViewController: TodokeTableViewControllerDelegate {
         }, completion: completion)
     }
     
-    
+    func showShadowBelowCenterViewController(_ shouldShowShadow: Bool) {
+        
+        if shouldShowShadow {
+            centerNavigationController.view.layer.shadowOpacity = 1.5
+        } else {
+            centerNavigationController.view.layer.shadowOpacity = 0.0
+        }
+    }
+
 }
 
 extension UINavigationController {

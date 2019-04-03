@@ -35,7 +35,6 @@ class TodokeTableViewController: UITableViewController {
         
         let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(openMenu(sender:)))
         view.addGestureRecognizer(rightSwipe)
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -117,8 +116,12 @@ class TodokeTableViewController: UITableViewController {
     
     // MARK: - Remove Task Functions
     
+    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        print(tableView.isEditing)
+        
         if (editingStyle == UITableViewCell.EditingStyle.delete) {
+            print("reached the if statement")
             context.delete(allTasks[indexPath.row])
             allTasks.remove(at: indexPath.row)
             do {

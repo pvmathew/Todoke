@@ -198,6 +198,9 @@ class TodokeTableViewController: UITableViewController {
     }
     
     // TODO: - Multiple pages/sections for different types of tasks
+    // TODO: - Finish Menu: https://www.raywenderlich.com/299-how-to-create-your-own-slide-out-navigation-panel-in-swift
+    
+    
 }
 
     // MARK: - Extensions

@@ -121,7 +121,6 @@ class TodokeTableViewController: UITableViewController {
         print(tableView.isEditing)
         
         if (editingStyle == UITableViewCell.EditingStyle.delete) {
-            print("reached the if statement")
             context.delete(allTasks[indexPath.row])
             allTasks.remove(at: indexPath.row)
             do {
@@ -214,14 +213,6 @@ class TodokeTableViewController: UITableViewController {
         navigationItem.leftBarButtonItem!.title = "Done"
         navigationItem.leftBarButtonItem!.style = .done
         tableView.setEditing(true, animated: true)
-    }
-    
-    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        return .none
-    }
-    
-    override func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
-        return false
     }
     
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {

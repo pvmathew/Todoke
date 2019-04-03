@@ -78,9 +78,10 @@
                             <view clipsSubviews="YES" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="tMP-Zz-oVU">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="146"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="raccoon.png" translatesAutoresizingMaskIntoConstraints="NO" id="4oA-ci-Kxz">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sloth.png" translatesAutoresizingMaskIntoConstraints="NO" id="4oA-ci-Kxz">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="146"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                        <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.80000000000000004"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="146" id="OaD-aY-6JN"/>
                                         </constraints>
@@ -162,6 +163,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="raccoon.png" width="512" height="512"/>
+        <image name="sloth.png" width="512" height="512"/>
     </resources>
 </document>

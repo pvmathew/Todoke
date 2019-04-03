@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D02189A22254880F001D16F3 /* sloth.png in Resources */ = {isa = PBXBuildFile; fileRef = D02189A12254880F001D16F3 /* sloth.png */; };
 		D0811EAB22465701003F0679 /* raccoon.png in Resources */ = {isa = PBXBuildFile; fileRef = D0811EAA22465701003F0679 /* raccoon.png */; };
 		D0811EAF224DB24A003F0679 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0811EAE224DB24A003F0679 /* LaunchScreen.storyboard */; };
 		D0811EB12251DB28003F0679 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0811EB02251DB28003F0679 /* ContainerViewController.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D02189A12254880F001D16F3 /* sloth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sloth.png; sourceTree = "<group>"; };
 		D0811EAA22465701003F0679 /* raccoon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = raccoon.png; sourceTree = "<group>"; };
 		D0811EAE224DB24A003F0679 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D0811EB02251DB28003F0679 /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				D0DBA6D12245F7E100729F39 /* Info.plist */,
 				D0811EAE224DB24A003F0679 /* LaunchScreen.storyboard */,
 				D0DBA6C92245F7E000729F39 /* Main.storyboard */,
+				D02189A12254880F001D16F3 /* sloth.png */,
 				D0811EAA22465701003F0679 /* raccoon.png */,
 				D0DBA6F72246363C00729F39 /* Todoke.xcdatamodeld */,
 				D0DBA6F32246020600729F39 /* TodokeTableViewController.swift */,
@@ -246,6 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0DBA6CD2245F7E100729F39 /* Assets.xcassets in Resources */,
+				D02189A22254880F001D16F3 /* sloth.png in Resources */,
 				D0811EAF224DB24A003F0679 /* LaunchScreen.storyboard in Resources */,
 				D0DBA6CB2245F7E000729F39 /* Main.storyboard in Resources */,
 				D0811EAB22465701003F0679 /* raccoon.png in Resources */,

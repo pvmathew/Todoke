@@ -32,7 +32,7 @@ class SidePanelViewController: UIViewController {
   
     @IBOutlet weak var tableView: UITableView!
     var delegate: TodokeTableViewControllerDelegate?
-    var menuItems = [String]()
+    var menuItems = [MenuItem]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +41,12 @@ class SidePanelViewController: UIViewController {
         leftSwipe.direction = .left
         view.addGestureRecognizer(leftSwipe)
         
-        menuItems = ["Reorder Tasks", "Change Color Theme", "Preferences"]
+        menuItems.append(MenuItem(name: "Reorder Tasks", iconName: "reorder", detail: "You're a mess."))
+        menuItems.append(MenuItem(name: "Change Theme", iconName: "rgb", detail: "To be implemented!"))
+        menuItems.append(MenuItem(name: "More Options", iconName: "settings", detail: "To be implemented!"))
+        
+        // So lines won't be pushed right by menu icons
+        tableView.separatorInset.left = 10
         
         tableView.reloadData()
     }
@@ -59,8 +64,13 @@ extension SidePanelViewController: UITableViewDataSource {
     }
   
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell", for: indexPath)
-        cell.textLabel?.text = menuItems[indexPath.row]
+
+        let cell = MenuCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "MenuItem")
+        cell.imageView!.clipsToBounds = true
+        
+        cell.textLabel?.text = menuItems[indexPath.row].name
+        cell.detailTextLabel?.text = menuItems[indexPath.row].detail
+        cell.imageView?.image = UIImage(named: menuItems[indexPath.row].iconName)
         
         return cell
     }

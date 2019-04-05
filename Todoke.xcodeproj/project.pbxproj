@@ -8,11 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		D02189A22254880F001D16F3 /* sloth.png in Resources */ = {isa = PBXBuildFile; fileRef = D02189A12254880F001D16F3 /* sloth.png */; };
-		D0811EAB22465701003F0679 /* raccoon.png in Resources */ = {isa = PBXBuildFile; fileRef = D0811EAA22465701003F0679 /* raccoon.png */; };
+		D02C5EC422572C9600127FEB /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02C5EC322572C9600127FEB /* MenuItem.swift */; };
+		D02C5EC92257308A00127FEB /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = D02C5EC62257308A00127FEB /* settings.png */; };
+		D02C5ECA2257308A00127FEB /* reorder.png in Resources */ = {isa = PBXBuildFile; fileRef = D02C5EC72257308A00127FEB /* reorder.png */; };
+		D02C5ECB2257308A00127FEB /* rgb.png in Resources */ = {isa = PBXBuildFile; fileRef = D02C5EC82257308A00127FEB /* rgb.png */; };
+		D02C5ECD2257339900127FEB /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02C5ECC2257339900127FEB /* MenuCell.swift */; };
 		D0811EAF224DB24A003F0679 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0811EAE224DB24A003F0679 /* LaunchScreen.storyboard */; };
 		D0811EB12251DB28003F0679 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0811EB02251DB28003F0679 /* ContainerViewController.swift */; };
 		D0811EB52251E1D2003F0679 /* TodokeTableViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0811EB42251E1D2003F0679 /* TodokeTableViewControllerDelegate.swift */; };
-		D0811EB72251EFA3003F0679 /* SidePanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0811EB62251EFA3003F0679 /* SidePanelViewController.swift */; };
+		D0811EB72251EFA3003F0679 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0811EB62251EFA3003F0679 /* MenuViewController.swift */; };
 		D0DBA6C62245F7E000729F39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DBA6C52245F7E000729F39 /* AppDelegate.swift */; };
 		D0DBA6CB2245F7E000729F39 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0DBA6C92245F7E000729F39 /* Main.storyboard */; };
 		D0DBA6CD2245F7E100729F39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0DBA6CC2245F7E100729F39 /* Assets.xcassets */; };
@@ -41,11 +45,15 @@
 
 /* Begin PBXFileReference section */
 		D02189A12254880F001D16F3 /* sloth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sloth.png; sourceTree = "<group>"; };
-		D0811EAA22465701003F0679 /* raccoon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = raccoon.png; sourceTree = "<group>"; };
+		D02C5EC322572C9600127FEB /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
+		D02C5EC62257308A00127FEB /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		D02C5EC72257308A00127FEB /* reorder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reorder.png; sourceTree = "<group>"; };
+		D02C5EC82257308A00127FEB /* rgb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rgb.png; sourceTree = "<group>"; };
+		D02C5ECC2257339900127FEB /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		D0811EAE224DB24A003F0679 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D0811EB02251DB28003F0679 /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		D0811EB42251E1D2003F0679 /* TodokeTableViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodokeTableViewControllerDelegate.swift; sourceTree = "<group>"; };
-		D0811EB62251EFA3003F0679 /* SidePanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidePanelViewController.swift; sourceTree = "<group>"; };
+		D0811EB62251EFA3003F0679 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		D0DBA6C22245F7E000729F39 /* Todoke.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todoke.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0DBA6C52245F7E000729F39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0DBA6CA2245F7E000729F39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -86,6 +94,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D02C5EC52257301E00127FEB /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				D02C5EC72257308A00127FEB /* reorder.png */,
+				D02C5EC82257308A00127FEB /* rgb.png */,
+				D02C5EC62257308A00127FEB /* settings.png */,
+				D02189A12254880F001D16F3 /* sloth.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		D0DBA6B92245F7E000729F39 = {
 			isa = PBXGroup;
 			children = (
@@ -113,12 +132,13 @@
 				D0DBA6C52245F7E000729F39 /* AppDelegate.swift */,
 				D0DBA6CC2245F7E100729F39 /* Assets.xcassets */,
 				D0811EB02251DB28003F0679 /* ContainerViewController.swift */,
-				D0811EB62251EFA3003F0679 /* SidePanelViewController.swift */,
+				D02C5ECC2257339900127FEB /* MenuCell.swift */,
+				D02C5EC52257301E00127FEB /* Images */,
 				D0DBA6D12245F7E100729F39 /* Info.plist */,
 				D0811EAE224DB24A003F0679 /* LaunchScreen.storyboard */,
 				D0DBA6C92245F7E000729F39 /* Main.storyboard */,
-				D02189A12254880F001D16F3 /* sloth.png */,
-				D0811EAA22465701003F0679 /* raccoon.png */,
+				D02C5EC322572C9600127FEB /* MenuItem.swift */,
+				D0811EB62251EFA3003F0679 /* MenuViewController.swift */,
 				D0DBA6F72246363C00729F39 /* Todoke.xcdatamodeld */,
 				D0DBA6F32246020600729F39 /* TodokeTableViewController.swift */,
 				D0811EB42251E1D2003F0679 /* TodokeTableViewControllerDelegate.swift */,
@@ -212,6 +232,7 @@
 				TargetAttributes = {
 					D0DBA6C12245F7E000729F39 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 					D0DBA6D52245F7E100729F39 = {
 						CreatedOnToolsVersion = 10.1;
@@ -249,10 +270,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0DBA6CD2245F7E100729F39 /* Assets.xcassets in Resources */,
+				D02C5EC92257308A00127FEB /* settings.png in Resources */,
 				D02189A22254880F001D16F3 /* sloth.png in Resources */,
+				D02C5ECB2257308A00127FEB /* rgb.png in Resources */,
+				D02C5ECA2257308A00127FEB /* reorder.png in Resources */,
 				D0811EAF224DB24A003F0679 /* LaunchScreen.storyboard in Resources */,
 				D0DBA6CB2245F7E000729F39 /* Main.storyboard in Resources */,
-				D0811EAB22465701003F0679 /* raccoon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,7 +300,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D0811EB72251EFA3003F0679 /* SidePanelViewController.swift in Sources */,
+				D02C5EC422572C9600127FEB /* MenuItem.swift in Sources */,
+				D0811EB72251EFA3003F0679 /* MenuViewController.swift in Sources */,
+				D02C5ECD2257339900127FEB /* MenuCell.swift in Sources */,
 				D0DBA6F92246363C00729F39 /* Todoke.xcdatamodeld in Sources */,
 				D0DBA6C62245F7E000729F39 /* AppDelegate.swift in Sources */,
 				D0811EB12251DB28003F0679 /* ContainerViewController.swift in Sources */,
@@ -449,6 +474,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = URZ22W695L;
 				INFOPLIST_FILE = Todoke/Info.plist;
@@ -458,6 +484,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.pavinmathew.Todoke;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -467,6 +494,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = URZ22W695L;
 				INFOPLIST_FILE = Todoke/Info.plist;

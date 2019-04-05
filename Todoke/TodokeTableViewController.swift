@@ -260,13 +260,10 @@ class TodokeTableViewController: UITableViewController {
             
         }
     }
-    
-    
-    // TODO: - Multiple pages/sections for different types of tasks
-    // TODO: - Subclass UITableViewCell to give the menu more flair
+
     // TODO: - Change Theme feature
-    
-    
+    // TODO: - Add a tooltip to let users know they can rename tasks
+        
 }
 
     // MARK: - Extensions

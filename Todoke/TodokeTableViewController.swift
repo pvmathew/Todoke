@@ -35,6 +35,9 @@ class TodokeTableViewController: UITableViewController {
         
         let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(openMenu(sender:)))
         view.addGestureRecognizer(rightSwipe)
+        
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(renameTask(sender:)))
+        view.addGestureRecognizer(longPress)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,7 +62,7 @@ class TodokeTableViewController: UITableViewController {
     
     @IBAction func addButton(_ sender: UIBarButtonItem) {
         let alert = UIAlertController(title: "Add Task", message: "What needs doing?", preferredStyle: .alert)
-        let addAction = UIAlertAction(title: "Add", style: .default, handler: self.saveTask)
+        let addAction = UIAlertAction(title: "Add", style: .default, handler: self.saveTask(sender:))
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alert.addAction(addAction)
         alert.addAction(cancelAction)
@@ -69,25 +72,40 @@ class TodokeTableViewController: UITableViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    func saveTask(alert: UIAlertAction!) {
-        let entity = NSEntityDescription.entity(forEntityName: "Task", in: context)!
-        
-        // Create a task model object from entity and insert into context
-        let taskObject = NSManagedObject(entity: entity, insertInto: context)
-        // Set title value for task object
-        taskObject.setValue(taskTextField.text, forKey: "title")
-        
-        do {
-            // Save changes in context to write them to disk
-            try context.save()
-        // And add newly created task object to array allTasks
-            allTasks.append(taskObject)
-        } catch {
-            print("Core Data save failure")
+    func saveTask(sender: UIAlertAction!) {
+        switch sender.title {
+        case "Add": // Adding a New Task
+            let entity = NSEntityDescription.entity(forEntityName: "Task", in: context)!
+
+            // Create a task model object from entity and insert into context
+            let taskObject = NSManagedObject(entity: entity, insertInto: context)
+            // Set title value for task object
+            taskObject.setValue(taskTextField.text, forKey: "title")
+
+            do {
+                // Save changes in context to write them to disk
+                try context.save()
+                // And add newly created task object to array allTasks
+                allTasks.append(taskObject)
+            } catch {
+                print("Core Data save failure")
+            }
+
+            tableView.reloadData()
+        case "Save": // Renaming an Existing Task
+            allTasks[lastLongPressIndexPath.row].setValue(taskTextField.text, forKey: "title")
+
+            do {
+                try context.save()
+            } catch {
+                print("Core Data save failure")
+            }
+
+            tableView.reloadData()
+        default:
+            print("saveTask failed to save")
         }
-        
-        tableView.reloadData()
-        
+
     }
     
     // MARK: - Table View Functions
@@ -115,7 +133,6 @@ class TodokeTableViewController: UITableViewController {
     }
     
     // MARK: - Remove Task / Done Functions
-    
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         print(tableView.isEditing)
@@ -172,7 +189,7 @@ class TodokeTableViewController: UITableViewController {
         let doneButton = UIButton(frame: CGRect(x: view.frame.width - 70.0 , y: 0.0, width: 60.0, height: 50.0))
         doneButton.setTitle("Done", for: .normal)
         doneButton.setTitleColor(.appleBlue(), for: .normal)
-        doneButton.addTarget(self, action: #selector(self.timePickingFinished(sender:)), for: .touchUpInside)
+        doneButton.addTarget(self, action: #selector(self.timePicked(sender:)), for: .touchUpInside)
         pickerView.addSubview(doneButton)
         
         let pickerFrame = CGRect(x: 0.0, y: 40.0, width: view.frame.width , height: 240)
@@ -187,7 +204,7 @@ class TodokeTableViewController: UITableViewController {
         
     }
     
-    @objc func timePickingFinished(sender: UIButton) {
+    @objc func timePicked(sender: UIButton) {
         // Save picker.date to Task object and reload tableView
         let lastIndexPath = self.tableView.indexPathForSelectedRow
         allTasks[lastIndexPath!.row].setValue(picker.date, forKey: "time")
@@ -208,7 +225,7 @@ class TodokeTableViewController: UITableViewController {
         delegate?.toggleLeftPanel?()
     }
     
-    // MARK: - Edit / Moving Mode Functions
+    // MARK: - Reorder Task Functions
     
     func activateEditMode() {
         print("Edit mode is being turned on")
@@ -222,6 +239,28 @@ class TodokeTableViewController: UITableViewController {
         allTasks.remove(at: sourceIndexPath.row)
         allTasks.insert(movedObject, at: destinationIndexPath.row)
     }
+    
+    // MARK: - Rename Task Functions
+    
+    var lastLongPressIndexPath: IndexPath!
+    
+    @objc func renameTask(sender: UILongPressGestureRecognizer) {
+        if sender.state == UIGestureRecognizer.State.began {
+            let touchPoint = sender.location(in: self.tableView)
+            lastLongPressIndexPath = tableView.indexPathForRow(at: touchPoint)!
+            let alert = UIAlertController(title: "Rename Task", message: "How did you mess it up the first time?", preferredStyle: .alert)
+            let saveAction = UIAlertAction(title: "Save", style: .default, handler: self.saveTask(sender:))
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            alert.addAction(saveAction)
+            alert.addAction(cancelAction)
+            alert.addTextField(configurationHandler: { (textField) in
+                self.taskTextField = textField
+                textField.text = (self.allTasks[self.lastLongPressIndexPath.row].value(forKey: "title") as! String)}) //**
+            self.present(alert, animated: true, completion: nil)
+            
+        }
+    }
+    
     
     // TODO: - Multiple pages/sections for different types of tasks
     // TODO: - Subclass UITableViewCell to give the menu more flair

@@ -151,8 +151,10 @@ class TodokeTableViewController: UITableViewController {
     // MARK: - Time Set Functions
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        view.bringSubviewToFront(pickerView)
-        pickerView.show()
+        if (pickerView.isHidden) {
+            view.bringSubviewToFront(pickerView)
+            pickerView.show()
+        }
     }
     
     func timePickerSetup () {

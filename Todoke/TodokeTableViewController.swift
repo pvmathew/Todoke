@@ -31,6 +31,7 @@ class TodokeTableViewController: UITableViewController {
         super.viewDidLoad()
         
         tableView.backgroundColor = UIColor.lead()
+        tableView.separatorInset.right = 15.0
         timePickerSetup()
         
         let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(openMenu(sender:)))

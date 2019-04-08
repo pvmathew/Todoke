@@ -48,6 +48,7 @@ class TodokeTableViewController: UITableViewController {
         
         do {
             // Attempts fetch
+            print("Tried to fetch once here")
             allTasks = try context.fetch(fetchRequest)
         } catch {
             print("Core Data load failure")
@@ -247,23 +248,27 @@ class TodokeTableViewController: UITableViewController {
     @objc func renameTask(sender: UILongPressGestureRecognizer) {
         if sender.state == UIGestureRecognizer.State.began {
             let touchPoint = sender.location(in: self.tableView)
-            lastLongPressIndexPath = tableView.indexPathForRow(at: touchPoint)!
-            let alert = UIAlertController(title: "Rename Task", message: "How did you mess it up the first time?", preferredStyle: .alert)
-            let saveAction = UIAlertAction(title: "Save", style: .default, handler: self.saveTask(sender:))
-            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-            alert.addAction(saveAction)
-            alert.addAction(cancelAction)
-            alert.addTextField(configurationHandler: { (textField) in
-                self.taskTextField = textField
-                textField.text = (self.allTasks[self.lastLongPressIndexPath.row].value(forKey: "title") as! String)}) //**
-            self.present(alert, animated: true, completion: nil)
-            
+            if let indexPath = tableView.indexPathForRow(at: touchPoint) {
+                // Only saving index path if it's not nil
+                lastLongPressIndexPath = indexPath
+                
+                let alert = UIAlertController(title: "Rename Task", message: "How did you mess it up the first time?", preferredStyle: .alert)
+                let saveAction = UIAlertAction(title: "Save", style: .default, handler: self.saveTask(sender:))
+                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+                alert.addAction(saveAction)
+                alert.addAction(cancelAction)
+                alert.addTextField(configurationHandler: { (textField) in
+                    self.taskTextField = textField
+                    textField.text = (self.allTasks[indexPath.row].value(forKey: "title") as! String)}) //**
+                self.present(alert, animated: true, completion: nil)
+            }
         }
     }
 
     // TODO: - Change Theme feature
-    // TODO: - Add a tooltip to let users know they can rename tasks
-        
+    // TODO: - More Options feature
+    // TODO: - Add a tooltip to let users know they can rename tasks and swipe right for menu
+    
 }
 
     // MARK: - Extensions

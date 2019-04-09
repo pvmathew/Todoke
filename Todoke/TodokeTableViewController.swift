@@ -20,7 +20,7 @@ class TodokeTableViewController: UITableViewController {
     let dateFormatter = DateFormatter()
     
     var delegate: TodokeTableViewControllerDelegate?
-
+    
     override var preferredStatusBarStyle : UIStatusBarStyle {
         return .lightContent
     }
@@ -43,8 +43,8 @@ class TodokeTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let selectedTheme = UserDefaults.standard.integer(forKey: "theme")
-        if selectedTheme == 1 { // Light Theme
+        // Get the current theme
+        if (UserDefaults.standard.integer(forKey: "theme")) == 1 { // Light Theme
             tableView.backgroundColor = .white
             tableView.separatorColor = .lightGray
         } else { // Dark Theme
@@ -134,9 +134,7 @@ class TodokeTableViewController: UITableViewController {
             cell.detailTextLabel?.text = dateString
         }
 
-        print(#function)
-        let selectedTheme = UserDefaults.standard.integer(forKey: "theme")
-        if selectedTheme == 1 { // Light Theme
+        if (UserDefaults.standard.integer(forKey: "theme")) == 1 { // Light Theme
             cell.backgroundColor = .white
             cell.textLabel?.textColor = .black
             cell.detailTextLabel?.textColor = UIColor.darkGray
@@ -286,7 +284,6 @@ class TodokeTableViewController: UITableViewController {
         }
     }
 
-    // TODO: - Change Theme feature
     // TODO: - More Options feature
     // TODO: - Add a tooltip to let users know they can rename tasks and swipe right for menu
 }

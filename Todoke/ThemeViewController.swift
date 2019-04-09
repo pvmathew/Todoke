@@ -10,11 +10,9 @@ import UIKit
 
 class ThemeViewController: UITableViewController {
     
-    var selectedTheme = Int()
+    //var selectedTheme = Int()
     
     override func viewDidLoad() {
-        selectedTheme = UserDefaults.standard.integer(forKey: "theme")
-        print("The currently selected theme is: \(selectedTheme)")
         
         self.title = "Themes"
         
@@ -29,22 +27,20 @@ class ThemeViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
-        selectedTheme = UserDefaults.standard.integer(forKey: "theme")
-        
-        print("reached here")
-        if selectedTheme == 1 { //Dark Theme
+
+        if (UserDefaults.standard.integer(forKey: "theme")) == 1 { //Light Theme
             cell.backgroundColor = .white
             cell.textLabel?.textColor = .black
             tableView.backgroundColor = .white
             tableView.separatorColor = .lightGray
-        } else { //Light Theme
+        } else { //Dark Theme
             cell.backgroundColor = .lead()
             cell.textLabel?.textColor = .white
             tableView.backgroundColor = .lead()
             tableView.separatorColor = .darkGray
         }
         
-        if indexPath.row == selectedTheme {
+        if indexPath.row == UserDefaults.standard.integer(forKey: "theme") {
             cell.accessoryType = .checkmark
         } else {
             cell.accessoryType = .none
@@ -65,9 +61,7 @@ class ThemeViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedTheme = indexPath.row
         UserDefaults.standard.set(indexPath.row, forKey: "theme")
-
         tableView.reloadData()
     }
     

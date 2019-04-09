@@ -65,7 +65,6 @@ class ContainerViewController: UIViewController {
         super.viewDidLoad()
         
         if !firstRun { //If it's the first run
-            print("this should be the first run")
             UserDefaults.standard.set(true, forKey: "firstRun")
             UserDefaults.standard.set(0, forKey: "theme")
         }

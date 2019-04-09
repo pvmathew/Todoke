@@ -37,10 +37,6 @@ class SidePanelViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(closeMenu(sender:)))
-        leftSwipe.direction = .left
-        view.addGestureRecognizer(leftSwipe)
-        
         menuItems.append(MenuItem(name: "Reorder Tasks", iconName: "reorder", detail: "You're a mess."))
         menuItems.append(MenuItem(name: "Change Theme", iconName: "rgb", detail: "Afraid of the dark?"))
         menuItems.append(MenuItem(name: "Settings", iconName: "settings", detail: "To be implemented!"))
@@ -52,9 +48,6 @@ class SidePanelViewController: UIViewController {
         tableView.reloadData()
     }
     
-    @objc func closeMenu(sender: UISwipeGestureRecognizer) {
-        delegate?.toggleLeftPanel?()
-    }
 }
 
 // MARK: Table View Data Source

@@ -10,8 +10,6 @@ import UIKit
 
 class ThemeViewController: UITableViewController {
     
-    //var selectedTheme = Int()
-    
     override func viewDidLoad() {
         
         self.title = "Themes"

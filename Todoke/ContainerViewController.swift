@@ -40,8 +40,7 @@ class ContainerViewController: UIViewController {
     var currentState: SlideOutState = .leftPanelCollapsed {
         didSet {
             if (currentState == .leftPanelExpanded) {
-                let shouldShowShadow = true
-                showShadowBelowCenterViewController(shouldShowShadow)
+                showShadowBelowCenterViewController(true)
             }
         }
     }
@@ -82,6 +81,11 @@ class ContainerViewController: UIViewController {
         // Set centerNavigationController to be containerViewController's child
         addChild(centerNavigationController)
         centerNavigationController.didMove(toParent: self)
+        
+        // Create pan gesture to open and close the side menu
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
+        // Add it to centerViewController (which is the main table view)
+        centerNavigationController.view.addGestureRecognizer(panGesture)
         
     }
 }
@@ -195,5 +199,41 @@ extension UINavigationController {
     // Ask top controller for its status bar style and update accordingly
     open override var preferredStatusBarStyle: UIStatusBarStyle {
         return topViewController?.preferredStatusBarStyle ?? .default
+    }
+}
+
+extension ContainerViewController: UIGestureRecognizerDelegate {
+    @objc func handlePanGesture(_ recognizer: UIPanGestureRecognizer) {
+        let gestureIsDraggingFromLeftToRight = (recognizer.velocity(in: view).x > 0)
+        
+        switch recognizer.state {
+        case .began: // When the panning begins
+            if currentState == .leftPanelCollapsed {
+                if gestureIsDraggingFromLeftToRight {
+                    addLeftPanelViewController()
+                }
+                
+                showShadowBelowCenterViewController(true)
+            }
+            
+        case .changed: // As it's moving, move the view it was used on along with it
+            if let rview = recognizer.view {
+                rview.center.x = rview.center.x + recognizer.translation(in: view).x
+                recognizer.setTranslation(CGPoint.zero, in: view)
+            }
+            
+        case .ended: // When panning ends
+            if let _ = leftViewController,
+                let rview = recognizer.view {
+                // Animate side panel fully open or closed depending on whether finger
+                // has moved more or less than halfway
+                let hasMovedGreaterThanHalfway = rview.center.x > view.bounds.size.width
+                animateLeftPanel(shouldExpand: hasMovedGreaterThanHalfway)
+            }
+            
+        default:
+            break
+        }
+
     }
 }

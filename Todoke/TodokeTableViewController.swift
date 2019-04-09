@@ -33,9 +33,6 @@ class TodokeTableViewController: UITableViewController {
         tableView.separatorInset.right = 15.0
         timePickerSetup()
         
-        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(openMenu(sender:)))
-        view.addGestureRecognizer(rightSwipe)
-        
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(renameTask(sender:)))
         view.addGestureRecognizer(longPress)
     }
@@ -237,12 +234,6 @@ class TodokeTableViewController: UITableViewController {
         
         tableView.reloadData()
         pickerView.hide()
-    }
-    
-    // MARK: - Menu Functions
-    
-    @objc func openMenu(sender: UISwipeGestureRecognizer) {
-        delegate?.toggleLeftPanel?()
     }
     
     // MARK: - Reorder Task Functions

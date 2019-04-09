@@ -13,6 +13,7 @@
 		D02C5ECA2257308A00127FEB /* reorder.png in Resources */ = {isa = PBXBuildFile; fileRef = D02C5EC72257308A00127FEB /* reorder.png */; };
 		D02C5ECB2257308A00127FEB /* rgb.png in Resources */ = {isa = PBXBuildFile; fileRef = D02C5EC82257308A00127FEB /* rgb.png */; };
 		D02C5ECD2257339900127FEB /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02C5ECC2257339900127FEB /* MenuCell.swift */; };
+		D02C5ECF225AE27800127FEB /* ThemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02C5ECE225AE27800127FEB /* ThemeViewController.swift */; };
 		D0811EAF224DB24A003F0679 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0811EAE224DB24A003F0679 /* LaunchScreen.storyboard */; };
 		D0811EB12251DB28003F0679 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0811EB02251DB28003F0679 /* ContainerViewController.swift */; };
 		D0811EB52251E1D2003F0679 /* TodokeTableViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0811EB42251E1D2003F0679 /* TodokeTableViewControllerDelegate.swift */; };
@@ -50,11 +51,12 @@
 		D02C5EC72257308A00127FEB /* reorder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reorder.png; sourceTree = "<group>"; };
 		D02C5EC82257308A00127FEB /* rgb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rgb.png; sourceTree = "<group>"; };
 		D02C5ECC2257339900127FEB /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
+		D02C5ECE225AE27800127FEB /* ThemeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeViewController.swift; sourceTree = "<group>"; };
 		D0811EAE224DB24A003F0679 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D0811EB02251DB28003F0679 /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		D0811EB42251E1D2003F0679 /* TodokeTableViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodokeTableViewControllerDelegate.swift; sourceTree = "<group>"; };
 		D0811EB62251EFA3003F0679 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
-		D0DBA6C22245F7E000729F39 /* Todoke.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todoke.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0DBA6C22245F7E000729F39 /* No More なまけ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "No More なまけ.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0DBA6C52245F7E000729F39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0DBA6CA2245F7E000729F39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D0DBA6CC2245F7E100729F39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -119,7 +121,7 @@
 		D0DBA6C32245F7E000729F39 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D0DBA6C22245F7E000729F39 /* Todoke.app */,
+				D0DBA6C22245F7E000729F39 /* No More なまけ.app */,
 				D0DBA6D62245F7E100729F39 /* TodokeTests.xctest */,
 				D0DBA6E12245F7E100729F39 /* TodokeUITests.xctest */,
 			);
@@ -139,6 +141,7 @@
 				D02C5ECC2257339900127FEB /* MenuCell.swift */,
 				D02C5EC322572C9600127FEB /* MenuItem.swift */,
 				D0811EB62251EFA3003F0679 /* MenuViewController.swift */,
+				D02C5ECE225AE27800127FEB /* ThemeViewController.swift */,
 				D0DBA6F72246363C00729F39 /* Todoke.xcdatamodeld */,
 				D0DBA6F32246020600729F39 /* TodokeTableViewController.swift */,
 				D0811EB42251E1D2003F0679 /* TodokeTableViewControllerDelegate.swift */,
@@ -181,7 +184,7 @@
 			);
 			name = Todoke;
 			productName = Todoke;
-			productReference = D0DBA6C22245F7E000729F39 /* Todoke.app */;
+			productReference = D0DBA6C22245F7E000729F39 /* No More なまけ.app */;
 			productType = "com.apple.product-type.application";
 		};
 		D0DBA6D52245F7E100729F39 /* TodokeTests */ = {
@@ -306,6 +309,7 @@
 				D0DBA6F92246363C00729F39 /* Todoke.xcdatamodeld in Sources */,
 				D0DBA6C62245F7E000729F39 /* AppDelegate.swift in Sources */,
 				D0811EB12251DB28003F0679 /* ContainerViewController.swift in Sources */,
+				D02C5ECF225AE27800127FEB /* ThemeViewController.swift in Sources */,
 				D0DBA6F42246020600729F39 /* TodokeTableViewController.swift in Sources */,
 				D0811EB52251E1D2003F0679 /* TodokeTableViewControllerDelegate.swift in Sources */,
 			);
@@ -483,7 +487,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.pavinmathew.Todoke;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "No More なまけ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -503,7 +507,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.pavinmathew.Todoke;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "No More なまけ";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

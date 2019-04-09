@@ -42,8 +42,9 @@ class SidePanelViewController: UIViewController {
         view.addGestureRecognizer(leftSwipe)
         
         menuItems.append(MenuItem(name: "Reorder Tasks", iconName: "reorder", detail: "You're a mess."))
-        menuItems.append(MenuItem(name: "Change Theme", iconName: "rgb", detail: "To be implemented!"))
-        menuItems.append(MenuItem(name: "More Options", iconName: "settings", detail: "To be implemented!"))
+        menuItems.append(MenuItem(name: "Change Theme", iconName: "rgb", detail: "Afraid of the dark?"))
+        menuItems.append(MenuItem(name: "Settings", iconName: "settings", detail: "To be implemented!"))
+        menuItems.append(MenuItem(name: "Help", iconName: "sloth", detail: "To be implemented!"))
         
         // So lines won't be pushed right by menu icons
         tableView.separatorInset.left = 10
@@ -83,9 +84,9 @@ extension SidePanelViewController: UITableViewDelegate {
         case 0: // Reorder Items was selected
             delegate?.enableReordering?()
         case 1:
-            print("'Change Color Theme' was selected")
+            delegate?.changeTheme?()
         case 2:
-            print("'More Options' was selected")
+            print("'Settings' was selected")
         default:
             print("Nothing was selected")
         }

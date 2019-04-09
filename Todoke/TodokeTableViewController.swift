@@ -30,7 +30,6 @@ class TodokeTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.backgroundColor = UIColor.lead()
         tableView.separatorInset.right = 15.0
         timePickerSetup()
         
@@ -44,6 +43,14 @@ class TodokeTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        let selectedTheme = UserDefaults.standard.integer(forKey: "theme")
+        if selectedTheme == 1 { // Light Theme
+            tableView.backgroundColor = .white
+            tableView.separatorColor = .lightGray
+        } else { // Dark Theme
+            tableView.backgroundColor = .lead()
+            tableView.separatorColor = .darkGray
+        }
         // Define fetch request for Task objects
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Task")
         
@@ -54,8 +61,9 @@ class TodokeTableViewController: UITableViewController {
         } catch {
             print("Core Data load failure")
         }
-    
         // When app is being reopened
+        
+        tableView.reloadData()
     }
     
     // MARK: - New Task Functions
@@ -114,8 +122,8 @@ class TodokeTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return allTasks.count
+        
     }
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
         cell.textLabel?.text = allTasks[indexPath.row].value(forKey: "title") as? String
@@ -126,10 +134,21 @@ class TodokeTableViewController: UITableViewController {
             cell.detailTextLabel?.text = dateString
         }
 
-        cell.backgroundColor = UIColor.lead()
-        cell.textLabel?.textColor = UIColor.white
-        cell.detailTextLabel?.textColor = UIColor.lightGray
-        cell.accessoryView?.tintColor = UIColor.darkGray
+        print(#function)
+        let selectedTheme = UserDefaults.standard.integer(forKey: "theme")
+        if selectedTheme == 1 { // Light Theme
+            cell.backgroundColor = .white
+            cell.textLabel?.textColor = .black
+            cell.detailTextLabel?.textColor = UIColor.darkGray
+            tableView.backgroundColor = .white
+            tableView.separatorColor = .lightGray
+        } else { // Dark Theme
+            cell.backgroundColor = .lead()
+            cell.textLabel?.textColor = .white
+            cell.detailTextLabel?.textColor = UIColor.lightGray
+            tableView.backgroundColor = .lead()
+            tableView.separatorColor = .darkGray
+        }
         
         return cell
     }
@@ -170,6 +189,7 @@ class TodokeTableViewController: UITableViewController {
     // MARK: - Time Set Functions
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        picker.date = allTasks[indexPath.row].value(forKey: "time") as! Date
         if (pickerView.isHidden) {
             view.bringSubviewToFront(pickerView)
             pickerView.show()
@@ -181,24 +201,24 @@ class TodokeTableViewController: UITableViewController {
         picker.datePickerMode = .time
         
         // Set frame to be size that fits width of device
-        pickerView = UIView(frame: CGRect(x: 0.0, y: view.frame.height - topbarHeight, width: view.frame.width , height: 280))
+        pickerView = UIView(frame: CGRect(x: 0.0, y: view.frame.height - topbarHeight, width: view.frame.width , height: 240))
         pickerView.backgroundColor = UIColor.white
-        pickerView.alpha = 0.7
+        pickerView.alpha = 1
 
         let toolbarArea = UIView(frame: CGRect(x: 0.0, y: 0.0, width: view.frame.width, height: 50))
         pickerView.addSubview(toolbarArea)
+        
+        let pickerFrame = CGRect(x: 0.0, y: 0.0, width: view.frame.width , height: 240)
+        picker.frame = pickerFrame
+        pickerView.addSubview(picker)
+        pickerView.isHidden = true
+        view.addSubview(pickerView)
         
         let doneButton = UIButton(frame: CGRect(x: view.frame.width - 70.0 , y: 0.0, width: 60.0, height: 50.0))
         doneButton.setTitle("Done", for: .normal)
         doneButton.setTitleColor(.appleBlue(), for: .normal)
         doneButton.addTarget(self, action: #selector(self.timePicked(sender:)), for: .touchUpInside)
         pickerView.addSubview(doneButton)
-        
-        let pickerFrame = CGRect(x: 0.0, y: 40.0, width: view.frame.width , height: 240)
-        picker.frame = pickerFrame
-        pickerView.addSubview(picker)
-        pickerView.isHidden = true
-        view.addSubview(pickerView)
         
         dateFormatter.dateFormat = "h:mm a"
         dateFormatter.amSymbol = "AM"
@@ -269,7 +289,6 @@ class TodokeTableViewController: UITableViewController {
     // TODO: - Change Theme feature
     // TODO: - More Options feature
     // TODO: - Add a tooltip to let users know they can rename tasks and swipe right for menu
-    
 }
 
     // MARK: - Extensions

@@ -50,6 +50,7 @@ class ContainerViewController: UIViewController {
     
     // The width in points that the original center view will be left visible after swipe
     let centerPanelExpandedOffset: CGFloat = 60
+    var themeViewController: UIViewController!
     
     var centerViewController: TodokeTableViewController!
     var centerNavigationController: UINavigationController!
@@ -58,8 +59,16 @@ class ContainerViewController: UIViewController {
         return .lightContent
     }
     
+    let firstRun = UserDefaults.standard.bool(forKey: "firstRun") as Bool
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if !firstRun { //If it's the first run
+            print("this should be the first run")
+            UserDefaults.standard.set(true, forKey: "firstRun")
+            UserDefaults.standard.set(0, forKey: "theme")
+        }
         
         // Create centerViewController
         centerViewController = UIStoryboard.centerViewController()
@@ -89,6 +98,10 @@ private extension UIStoryboard {
     static func centerViewController() -> TodokeTableViewController? {
         return mainStoryboard().instantiateViewController(withIdentifier: "CenterViewController") as? TodokeTableViewController
     }
+    
+    static func themeViewController() -> ThemeViewController? {
+        return mainStoryboard().instantiateViewController(withIdentifier: "ThemeViewController") as? ThemeViewController
+    }
 }
 
 // MARK: CenterViewController delegate
@@ -99,6 +112,13 @@ extension ContainerViewController: TodokeTableViewControllerDelegate {
         print("Reorder Items button was pressed")
         toggleLeftPanel()
         centerViewController.activateEditMode()
+    }
+    
+    func changeTheme() {
+        print("Change Theme button was pressed")
+        toggleLeftPanel()
+        themeViewController = UIStoryboard.themeViewController()
+        centerNavigationController.pushViewController(themeViewController, animated: true)
     }
     
     func toggleLeftPanel() {

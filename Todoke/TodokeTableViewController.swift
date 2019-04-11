@@ -184,7 +184,9 @@ class TodokeTableViewController: UITableViewController {
     // MARK: - Time Set Functions
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        picker.date = allTasks[indexPath.row].value(forKey: "time") as! Date
+        if let date = allTasks[indexPath.row].value(forKey: "time") {
+            picker.date = date as! Date
+        }
         if (pickerView.isHidden) {
             view.bringSubviewToFront(pickerView)
             pickerView.show()

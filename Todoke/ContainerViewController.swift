@@ -87,7 +87,37 @@ class ContainerViewController: UIViewController {
         // Add it to centerViewController (which is the main table view)
         centerNavigationController.view.addGestureRecognizer(panGesture)
         
+        tooltipSetup()
     }
+    
+    func tooltipSetup() {
+        print(#function)
+        let button = UIButton(type: .custom)
+        button.frame = CGRect(x: view.frame.width - 100, y: view.frame.height - 100 , width: 70, height: 70)
+        button.layer.cornerRadius = 0.5 * button.bounds.size.width
+        button.clipsToBounds = true
+        let color = UIColor.init(red: 33/255, green: 203/255, blue: 156/255, alpha: 1)
+        
+        button.backgroundColor = color
+        button.setTitle("?", for: .normal)
+        button.titleLabel?.font = .boldSystemFont(ofSize: 32)
+
+        button.addTarget(self, action: #selector(helpButton), for: .touchUpInside)
+
+        
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
+        button.layer.masksToBounds = false
+        button.layer.shadowRadius = 3.0
+        button.layer.shadowOpacity = 0.5
+        
+        centerNavigationController.view.addSubview(button)
+    }
+    
+    @objc func helpButton() {
+        
+    }
+    
 }
 
 private extension UIStoryboard {
@@ -211,15 +241,18 @@ extension ContainerViewController: UIGestureRecognizerDelegate {
             if currentState == .leftPanelCollapsed {
                 if gestureIsDraggingFromLeftToRight {
                     addLeftPanelViewController()
+                    showShadowBelowCenterViewController(true)
+                } else {
+                    // Cancel gesture if trying to swift left
+                    recognizer.state = .cancelled
                 }
-                
-                showShadowBelowCenterViewController(true)
             }
             
         case .changed: // As it's moving, move the view it was used on along with it
             if let rview = recognizer.view {
                 rview.center.x = rview.center.x + recognizer.translation(in: view).x
                 recognizer.setTranslation(CGPoint.zero, in: view)
+
             }
             
         case .ended: // When panning ends
@@ -237,3 +270,4 @@ extension ContainerViewController: UIGestureRecognizerDelegate {
 
     }
 }
+

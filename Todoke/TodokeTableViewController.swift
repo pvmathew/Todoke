@@ -88,7 +88,7 @@ class TodokeTableViewController: UITableViewController {
             let taskObject = NSManagedObject(entity: entity, insertInto: context)
             // Set title value for task object
             taskObject.setValue(taskTextField.text, forKey: "title")
-
+            
             do {
                 // Save changes in context to write them to disk
                 try context.save()
@@ -172,13 +172,24 @@ class TodokeTableViewController: UITableViewController {
             setEditing(false, animated: true)
             return
         } // Else go on and clear all
+        
+        // Create and show confirmation window
+        let alert = UIAlertController(title: "Clear All", message: "Are you sure?", preferredStyle: .alert)
+        let addAction = UIAlertAction(title: "Do it", style: .default, handler: clearAll(sender:))
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(addAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
+        
+    }
+    
+    func clearAll(sender: UIAlertAction) {
         for task in allTasks {
             context.delete(task)
         }
         allTasks.removeAll()
         pickerView.hide()
         tableView.reloadData()
-        
     }
     
     // MARK: - Time Set Functions
@@ -277,7 +288,7 @@ class TodokeTableViewController: UITableViewController {
         }
     }
     
-    // BUGFIX: - Disable swift left
+    // BUGFIX: - move isn't working, clear all confirmation
     // TODO: - More Options feature
     // TODO: - Add a tooltip to let users know they can rename tasks and swipe right for menu
 }

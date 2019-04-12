@@ -102,20 +102,20 @@ class ContainerViewController: UIViewController {
         button.setTitle("?", for: .normal)
         button.titleLabel?.font = .boldSystemFont(ofSize: 32)
 
-        button.addTarget(self, action: #selector(helpButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(helpButton(sender:)), for: .touchUpInside)
 
         
         button.layer.shadowColor = UIColor.black.cgColor
-        button.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
+        button.layer.shadowOffset = CGSize(width: 0.0, height: 0.5)
         button.layer.masksToBounds = false
         button.layer.shadowRadius = 3.0
-        button.layer.shadowOpacity = 0.5
+        button.layer.shadowOpacity = 0.25
         
         centerNavigationController.view.addSubview(button)
     }
     
-    @objc func helpButton() {
-        
+    @objc func helpButton(sender: UIButton) {
+        print("Help button was pressed")
     }
     
 }

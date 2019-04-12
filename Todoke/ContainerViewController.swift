@@ -84,6 +84,8 @@ class ContainerViewController: UIViewController {
         
         // Create pan gesture to open and close the side menu
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
+        // Make it so it doesnt interfere with moving of cells
+        panGesture.cancelsTouchesInView = false
         // Add it to centerViewController (which is the main table view)
         centerNavigationController.view.addGestureRecognizer(panGesture)
         
@@ -91,7 +93,6 @@ class ContainerViewController: UIViewController {
     }
     
     func tooltipSetup() {
-        print(#function)
         let button = UIButton(type: .custom)
         button.frame = CGRect(x: view.frame.width - 100, y: view.frame.height - 100 , width: 70, height: 70)
         button.layer.cornerRadius = 0.5 * button.bounds.size.width
@@ -235,7 +236,6 @@ extension UINavigationController {
 extension ContainerViewController: UIGestureRecognizerDelegate {
     @objc func handlePanGesture(_ recognizer: UIPanGestureRecognizer) {
         let gestureIsDraggingFromLeftToRight = (recognizer.velocity(in: view).x > 0)
-        
         switch recognizer.state {
         case .began: // When the panning begins
             if currentState == .leftPanelCollapsed {

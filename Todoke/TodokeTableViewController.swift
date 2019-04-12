@@ -259,7 +259,10 @@ class TodokeTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        print(#function)
         let movedObject = self.allTasks[sourceIndexPath.row]
+        print(movedObject.value(forKey: "time") as! Date)
+        print(movedObject.value(forKey: "title") as! String)
         allTasks.remove(at: sourceIndexPath.row)
         allTasks.insert(movedObject, at: destinationIndexPath.row)
     }
@@ -288,7 +291,7 @@ class TodokeTableViewController: UITableViewController {
         }
     }
     
-    // BUGFIX: - move isn't working, clear all confirmation
+    // BUGFIX: - move isn't working
     // TODO: - More Options feature
     // TODO: - Add a tooltip to let users know they can rename tasks and swipe right for menu
 }

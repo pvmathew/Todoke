@@ -291,7 +291,6 @@ class TodokeTableViewController: UITableViewController {
         }
     }
     
-    // BUGFIX: - move isn't working
     // TODO: - More Options feature
     // TODO: - Add a tooltip to let users know they can rename tasks and swipe right for menu
 }

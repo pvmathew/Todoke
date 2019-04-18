@@ -77,7 +77,7 @@ extension SidePanelViewController: UITableViewDelegate {
         case 0: // Reorder Items was selected
             delegate?.enableReordering?()
         case 1:
-            delegate?.changeTheme?()
+            delegate?.showThemes?()
         case 2:
             print("'Settings' was selected")
         default:

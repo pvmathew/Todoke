@@ -14,6 +14,7 @@
 		D02C5ECB2257308A00127FEB /* rgb.png in Resources */ = {isa = PBXBuildFile; fileRef = D02C5EC82257308A00127FEB /* rgb.png */; };
 		D02C5ECD2257339900127FEB /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02C5ECC2257339900127FEB /* MenuCell.swift */; };
 		D02C5ECF225AE27800127FEB /* ThemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02C5ECE225AE27800127FEB /* ThemeViewController.swift */; };
+		D076C04022681B3C00F577D7 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D076C03F22681B3C00F577D7 /* HelpViewController.swift */; };
 		D0811EAF224DB24A003F0679 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0811EAE224DB24A003F0679 /* LaunchScreen.storyboard */; };
 		D0811EB12251DB28003F0679 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0811EB02251DB28003F0679 /* ContainerViewController.swift */; };
 		D0811EB52251E1D2003F0679 /* TodokeTableViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0811EB42251E1D2003F0679 /* TodokeTableViewControllerDelegate.swift */; };
@@ -52,6 +53,7 @@
 		D02C5EC82257308A00127FEB /* rgb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rgb.png; sourceTree = "<group>"; };
 		D02C5ECC2257339900127FEB /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		D02C5ECE225AE27800127FEB /* ThemeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeViewController.swift; sourceTree = "<group>"; };
+		D076C03F22681B3C00F577D7 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		D0811EAE224DB24A003F0679 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D0811EB02251DB28003F0679 /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		D0811EB42251E1D2003F0679 /* TodokeTableViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodokeTableViewControllerDelegate.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				D0DBA6C52245F7E000729F39 /* AppDelegate.swift */,
 				D0DBA6CC2245F7E100729F39 /* Assets.xcassets */,
 				D0811EB02251DB28003F0679 /* ContainerViewController.swift */,
+				D076C03F22681B3C00F577D7 /* HelpViewController.swift */,
 				D02C5EC52257301E00127FEB /* Images */,
 				D0DBA6D12245F7E100729F39 /* Info.plist */,
 				D0811EAE224DB24A003F0679 /* LaunchScreen.storyboard */,
@@ -312,6 +315,7 @@
 				D02C5ECF225AE27800127FEB /* ThemeViewController.swift in Sources */,
 				D0DBA6F42246020600729F39 /* TodokeTableViewController.swift in Sources */,
 				D0811EB52251E1D2003F0679 /* TodokeTableViewControllerDelegate.swift in Sources */,
+				D076C04022681B3C00F577D7 /* HelpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -51,6 +51,8 @@ class ContainerViewController: UIViewController {
     let centerPanelExpandedOffset: CGFloat = 60
     var themeViewController: UIViewController!
     
+    var helpViewController: UIViewController!
+    
     var centerViewController: TodokeTableViewController!
     var centerNavigationController: UINavigationController!
     
@@ -73,7 +75,6 @@ class ContainerViewController: UIViewController {
         // Set it's delegate to be containerViewController
         // This way, it can tell containerViewController when to show and hide the side panels
         centerViewController.delegate = self
-        
         // Wrap centerViewController into a navigationController
         centerNavigationController = UINavigationController(rootViewController: centerViewController)
         // Push the navigationControllerView onto containerViewController's view
@@ -100,6 +101,7 @@ class ContainerViewController: UIViewController {
         let color = UIColor.init(red: 33/255, green: 203/255, blue: 156/255, alpha: 1)
         
         button.backgroundColor = color
+        button.setTitleColor(color, for: .selected)
         button.setTitle("?", for: .normal)
         button.titleLabel?.font = .boldSystemFont(ofSize: 32)
 
@@ -116,7 +118,17 @@ class ContainerViewController: UIViewController {
     }
     
     @objc func helpButton(sender: UIButton) {
-        print("Help button was pressed")
+        if sender.isSelected == false {
+            sender.isSelected = true
+            UIView.animate(withDuration: 0.5, animations: {
+                sender.transform = CGAffineTransform(scaleX: 20, y: 20)
+            }) { (true) in
+                print("Finished enlarging uiButton, now need to create a new view")
+                sender.transform = CGAffineTransform.identity
+                sender.isSelected = false
+                self.showHelp()
+            }
+        }
     }
     
 }
@@ -136,6 +148,10 @@ private extension UIStoryboard {
     static func themeViewController() -> ThemeViewController? {
         return mainStoryboard().instantiateViewController(withIdentifier: "ThemeViewController") as? ThemeViewController
     }
+    
+    static func helpViewController() -> HelpViewController? {
+        return mainStoryboard().instantiateViewController(withIdentifier: "HelpViewController") as? HelpViewController
+    }
 }
 
 // MARK: CenterViewController delegate
@@ -148,10 +164,19 @@ extension ContainerViewController: TodokeTableViewControllerDelegate {
         centerViewController.activateEditMode()
     }
     
-    func changeTheme() {
+    func showHelp() {
+        print(#function)
+        helpViewController = UIStoryboard.helpViewController()
+        //centerNavigationController.pushViewController(helpViewController, animated: true)
+        
+        view.addSubview(helpViewController.view)
+    }
+    
+    func showThemes() {
         print("Change Theme button was pressed")
         toggleLeftPanel()
         themeViewController = UIStoryboard.themeViewController()
+        
         centerNavigationController.pushViewController(themeViewController, animated: true)
     }
     

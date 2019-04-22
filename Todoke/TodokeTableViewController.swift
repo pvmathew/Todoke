@@ -39,7 +39,7 @@ class TodokeTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+                
         // Get the current theme
         if (UserDefaults.standard.integer(forKey: "theme")) == 1 { // Light Theme
             tableView.backgroundColor = .white

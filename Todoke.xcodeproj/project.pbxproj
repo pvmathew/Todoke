@@ -22,28 +22,9 @@
 		D0DBA6C62245F7E000729F39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DBA6C52245F7E000729F39 /* AppDelegate.swift */; };
 		D0DBA6CB2245F7E000729F39 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0DBA6C92245F7E000729F39 /* Main.storyboard */; };
 		D0DBA6CD2245F7E100729F39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0DBA6CC2245F7E100729F39 /* Assets.xcassets */; };
-		D0DBA6DB2245F7E100729F39 /* TodokeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DBA6DA2245F7E100729F39 /* TodokeTests.swift */; };
-		D0DBA6E62245F7E100729F39 /* TodokeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DBA6E52245F7E100729F39 /* TodokeUITests.swift */; };
 		D0DBA6F42246020600729F39 /* TodokeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DBA6F32246020600729F39 /* TodokeTableViewController.swift */; };
 		D0DBA6F92246363C00729F39 /* Todoke.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D0DBA6F72246363C00729F39 /* Todoke.xcdatamodeld */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		D0DBA6D72245F7E100729F39 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D0DBA6BA2245F7E000729F39 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D0DBA6C12245F7E000729F39;
-			remoteInfo = Todoke;
-		};
-		D0DBA6E22245F7E100729F39 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D0DBA6BA2245F7E000729F39 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D0DBA6C12245F7E000729F39;
-			remoteInfo = Todoke;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		D02189A12254880F001D16F3 /* sloth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sloth.png; sourceTree = "<group>"; };
@@ -63,32 +44,12 @@
 		D0DBA6CA2245F7E000729F39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D0DBA6CC2245F7E100729F39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D0DBA6D12245F7E100729F39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D0DBA6D62245F7E100729F39 /* TodokeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodokeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D0DBA6DA2245F7E100729F39 /* TodokeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodokeTests.swift; sourceTree = "<group>"; };
-		D0DBA6DC2245F7E100729F39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D0DBA6E12245F7E100729F39 /* TodokeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodokeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D0DBA6E52245F7E100729F39 /* TodokeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodokeUITests.swift; sourceTree = "<group>"; };
-		D0DBA6E72245F7E100729F39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0DBA6F32246020600729F39 /* TodokeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodokeTableViewController.swift; sourceTree = "<group>"; };
 		D0DBA6F82246363C00729F39 /* Todoke.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Todoke.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		D0DBA6BF2245F7E000729F39 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D0DBA6D32245F7E100729F39 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D0DBA6DE2245F7E100729F39 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -113,8 +74,6 @@
 			isa = PBXGroup;
 			children = (
 				D0DBA6C42245F7E000729F39 /* Todoke */,
-				D0DBA6D92245F7E100729F39 /* TodokeTests */,
-				D0DBA6E42245F7E100729F39 /* TodokeUITests */,
 				D0DBA6C32245F7E000729F39 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -124,8 +83,6 @@
 			isa = PBXGroup;
 			children = (
 				D0DBA6C22245F7E000729F39 /* No More なまけ.app */,
-				D0DBA6D62245F7E100729F39 /* TodokeTests.xctest */,
-				D0DBA6E12245F7E100729F39 /* TodokeUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -152,24 +109,6 @@
 			path = Todoke;
 			sourceTree = "<group>";
 		};
-		D0DBA6D92245F7E100729F39 /* TodokeTests */ = {
-			isa = PBXGroup;
-			children = (
-				D0DBA6DA2245F7E100729F39 /* TodokeTests.swift */,
-				D0DBA6DC2245F7E100729F39 /* Info.plist */,
-			);
-			path = TodokeTests;
-			sourceTree = "<group>";
-		};
-		D0DBA6E42245F7E100729F39 /* TodokeUITests */ = {
-			isa = PBXGroup;
-			children = (
-				D0DBA6E52245F7E100729F39 /* TodokeUITests.swift */,
-				D0DBA6E72245F7E100729F39 /* Info.plist */,
-			);
-			path = TodokeUITests;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -190,42 +129,6 @@
 			productReference = D0DBA6C22245F7E000729F39 /* No More なまけ.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D0DBA6D52245F7E100729F39 /* TodokeTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D0DBA6ED2245F7E100729F39 /* Build configuration list for PBXNativeTarget "TodokeTests" */;
-			buildPhases = (
-				D0DBA6D22245F7E100729F39 /* Sources */,
-				D0DBA6D32245F7E100729F39 /* Frameworks */,
-				D0DBA6D42245F7E100729F39 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D0DBA6D82245F7E100729F39 /* PBXTargetDependency */,
-			);
-			name = TodokeTests;
-			productName = TodokeTests;
-			productReference = D0DBA6D62245F7E100729F39 /* TodokeTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		D0DBA6E02245F7E100729F39 /* TodokeUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D0DBA6F02245F7E100729F39 /* Build configuration list for PBXNativeTarget "TodokeUITests" */;
-			buildPhases = (
-				D0DBA6DD2245F7E100729F39 /* Sources */,
-				D0DBA6DE2245F7E100729F39 /* Frameworks */,
-				D0DBA6DF2245F7E100729F39 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D0DBA6E32245F7E100729F39 /* PBXTargetDependency */,
-			);
-			name = TodokeUITests;
-			productName = TodokeUITests;
-			productReference = D0DBA6E12245F7E100729F39 /* TodokeUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -238,15 +141,7 @@
 				TargetAttributes = {
 					D0DBA6C12245F7E000729F39 = {
 						CreatedOnToolsVersion = 10.1;
-						LastSwiftMigration = 1010;
-					};
-					D0DBA6D52245F7E100729F39 = {
-						CreatedOnToolsVersion = 10.1;
-						TestTargetID = D0DBA6C12245F7E000729F39;
-					};
-					D0DBA6E02245F7E100729F39 = {
-						CreatedOnToolsVersion = 10.1;
-						TestTargetID = D0DBA6C12245F7E000729F39;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -264,8 +159,6 @@
 			projectRoot = "";
 			targets = (
 				D0DBA6C12245F7E000729F39 /* Todoke */,
-				D0DBA6D52245F7E100729F39 /* TodokeTests */,
-				D0DBA6E02245F7E100729F39 /* TodokeUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -282,20 +175,6 @@
 				D02C5ECA2257308A00127FEB /* reorder.png in Resources */,
 				D0811EAF224DB24A003F0679 /* LaunchScreen.storyboard in Resources */,
 				D0DBA6CB2245F7E000729F39 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D0DBA6D42245F7E100729F39 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D0DBA6DF2245F7E100729F39 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,36 +198,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D0DBA6D22245F7E100729F39 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D0DBA6DB2245F7E100729F39 /* TodokeTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D0DBA6DD2245F7E100729F39 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D0DBA6E62245F7E100729F39 /* TodokeUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		D0DBA6D82245F7E100729F39 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D0DBA6C12245F7E000729F39 /* Todoke */;
-			targetProxy = D0DBA6D72245F7E100729F39 /* PBXContainerItemProxy */;
-		};
-		D0DBA6E32245F7E100729F39 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D0DBA6C12245F7E000729F39 /* Todoke */;
-			targetProxy = D0DBA6E22245F7E100729F39 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		D0DBA6C92245F7E000729F39 /* Main.storyboard */ = {
@@ -493,7 +343,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.pavinmathew.Todoke;
 				PRODUCT_NAME = "No More なまけ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -512,90 +362,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.pavinmathew.Todoke;
 				PRODUCT_NAME = "No More なまけ";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Release;
-		};
-		D0DBA6EE2245F7E100729F39 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = URZ22W695L;
-				INFOPLIST_FILE = TodokeTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.pavinmathew.TodokeTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Todoke.app/Todoke";
-			};
-			name = Debug;
-		};
-		D0DBA6EF2245F7E100729F39 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = URZ22W695L;
-				INFOPLIST_FILE = TodokeTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.pavinmathew.TodokeTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Todoke.app/Todoke";
-			};
-			name = Release;
-		};
-		D0DBA6F12245F7E100729F39 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = URZ22W695L;
-				INFOPLIST_FILE = TodokeUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.pavinmathew.TodokeUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Todoke;
-			};
-			name = Debug;
-		};
-		D0DBA6F22245F7E100729F39 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = URZ22W695L;
-				INFOPLIST_FILE = TodokeUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.pavinmathew.TodokeUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Todoke;
 			};
 			name = Release;
 		};
@@ -616,24 +384,6 @@
 			buildConfigurations = (
 				D0DBA6EB2245F7E100729F39 /* Debug */,
 				D0DBA6EC2245F7E100729F39 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D0DBA6ED2245F7E100729F39 /* Build configuration list for PBXNativeTarget "TodokeTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D0DBA6EE2245F7E100729F39 /* Debug */,
-				D0DBA6EF2245F7E100729F39 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D0DBA6F02245F7E100729F39 /* Build configuration list for PBXNativeTarget "TodokeUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D0DBA6F12245F7E100729F39 /* Debug */,
-				D0DBA6F22245F7E100729F39 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

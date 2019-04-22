@@ -52,6 +52,7 @@ class ContainerViewController: UIViewController {
     var themeViewController: UIViewController!
     
     var helpViewController: UIViewController!
+    var helpButton: UIButton!
     
     var centerViewController: TodokeTableViewController!
     var centerNavigationController: UINavigationController!
@@ -94,30 +95,31 @@ class ContainerViewController: UIViewController {
     }
     
     func tooltipSetup() {
-        let button = UIButton(type: .custom)
-        button.frame = CGRect(x: view.frame.width - 100, y: view.frame.height - 100 , width: 70, height: 70)
-        button.layer.cornerRadius = 0.5 * button.bounds.size.width
-        button.clipsToBounds = true
+        helpButton = UIButton(type: .custom)
+        helpButton.frame = CGRect(x: view.frame.width - 100, y: view.frame.height - 100 , width: 70, height: 70)
+        helpButton.layer.cornerRadius = 0.5 * helpButton.bounds.size.width
+        helpButton.clipsToBounds = true
         let color = UIColor.init(red: 33/255, green: 203/255, blue: 156/255, alpha: 1)
         
-        button.backgroundColor = color
-        button.setTitleColor(color, for: .selected)
-        button.setTitle("?", for: .normal)
-        button.titleLabel?.font = .boldSystemFont(ofSize: 32)
+        helpButton.backgroundColor = color
+        helpButton.setTitleColor(color, for: .selected)
+        helpButton.setTitle("?", for: .normal)
+        helpButton.titleLabel?.font = .boldSystemFont(ofSize: 32)
 
-        button.addTarget(self, action: #selector(helpButton(sender:)), for: .touchUpInside)
+        helpButton.addTarget(self, action: #selector(helpButton(sender:)), for: .touchUpInside)
 
         
-        button.layer.shadowColor = UIColor.black.cgColor
-        button.layer.shadowOffset = CGSize(width: 0.0, height: 0.5)
-        button.layer.masksToBounds = false
-        button.layer.shadowRadius = 3.0
-        button.layer.shadowOpacity = 0.25
+        helpButton.layer.shadowColor = UIColor.black.cgColor
+        helpButton.layer.shadowOffset = CGSize(width: 0.0, height: 0.5)
+        helpButton.layer.masksToBounds = false
+        helpButton.layer.shadowRadius = 3.0
+        helpButton.layer.shadowOpacity = 0.25
         
-        centerNavigationController.view.addSubview(button)
+        centerNavigationController.view.addSubview(helpButton)
     }
     
     @objc func helpButton(sender: UIButton) {
+        
         if sender.isSelected == false {
             sender.isSelected = true
             UIView.animate(withDuration: 0.5, animations: {
@@ -168,9 +170,15 @@ extension ContainerViewController: TodokeTableViewControllerDelegate {
         print(#function)
         helpViewController = UIStoryboard.helpViewController()
         //centerNavigationController.pushViewController(helpViewController, animated: true)
-        
+
         view.addSubview(helpViewController.view)
     }
+    
+    func pressHelp() {
+        print(#function)
+        helpButton.sendActions(for: .touchUpInside)
+    }
+    
     
     func showThemes() {
         print("Change Theme button was pressed")

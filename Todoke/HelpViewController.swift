@@ -12,7 +12,8 @@ class HelpViewController: UIPageViewController, UIPageViewControllerDelegate, UI
     
     lazy var orderedViewControllers: [UIViewController] = {
         return [self.newVc(viewController: "helpPage1"),
-                self.newVc(viewController: "helpPage2")]
+                self.newVc(viewController: "helpPage2")]//,
+               // self.newVc(viewController: "helpPageEnd")]
     }()
     
     func newVc(viewController: String) -> UIViewController {
@@ -21,7 +22,7 @@ class HelpViewController: UIPageViewController, UIPageViewControllerDelegate, UI
     
     // MARK: Data source functions.
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        guard let viewControllerIndex = orderedViewControllers.index(of: viewController) else {
+        guard let viewControllerIndex = orderedViewControllers.firstIndex(of: viewController) else {
             return nil
         }
         
@@ -30,9 +31,9 @@ class HelpViewController: UIPageViewController, UIPageViewControllerDelegate, UI
         // User is on the first view controller and swiped left to loop to
         // the last view controller.
         guard previousIndex >= 0 else {
-            return orderedViewControllers.last
+            //return orderedViewControllers.last
             // Uncommment the line below, remove the line above if you don't want the page control to loop.
-            // return nil
+            return nil
         }
         
         guard orderedViewControllers.count > previousIndex else {
@@ -43,7 +44,8 @@ class HelpViewController: UIPageViewController, UIPageViewControllerDelegate, UI
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        guard let viewControllerIndex = orderedViewControllers.index(of: viewController) else {
+
+        guard let viewControllerIndex = orderedViewControllers.firstIndex(of: viewController) else {
             return nil
         }
         
@@ -53,17 +55,18 @@ class HelpViewController: UIPageViewController, UIPageViewControllerDelegate, UI
         // User is on the last view controller and swiped right to loop to
         // the first view controller.
         
-        if orderedViewControllersCount != nextIndex {
-            self.view.removeFromSuperview()
-        }
         
         guard orderedViewControllersCount != nextIndex else {
-            return orderedViewControllers.first
+            //return orderedViewControllers.first
             // Uncommment the line below, remove the line above if you don't want the page control to loop.
             // return nil
+            navigationController?.popViewController(animated: true)
+            //view.removeFromSuperview()
+            return nil
         }
         
         guard orderedViewControllersCount > nextIndex else {
+            //view.removeFromSuperview()
             return nil
         }
         
@@ -76,6 +79,9 @@ class HelpViewController: UIPageViewController, UIPageViewControllerDelegate, UI
         super.viewDidLoad()
         
         self.dataSource = self
+        self.delegate = self
+        
+        configurePageControl()
         
         
         // This sets up the first view that will show up on our page control
@@ -92,7 +98,7 @@ class HelpViewController: UIPageViewController, UIPageViewControllerDelegate, UI
     func configurePageControl() {
         // The total number of pages that are available is based on how many available colors we have.
         pageControl = UIPageControl(frame: CGRect(x: 0,y: UIScreen.main.bounds.maxY - 50,width: UIScreen.main.bounds.width,height: 50))
-        self.pageControl.numberOfPages = orderedViewControllers.count
+        self.pageControl.numberOfPages = orderedViewControllers.count // - 1
         self.pageControl.currentPage = 0
         self.pageControl.tintColor = UIColor.black
         self.pageControl.pageIndicatorTintColor = UIColor.white
@@ -102,7 +108,7 @@ class HelpViewController: UIPageViewController, UIPageViewControllerDelegate, UI
     // MARK: Delegate functions
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         let pageContentViewController = pageViewController.viewControllers![0]
-        self.pageControl.currentPage = orderedViewControllers.index(of: pageContentViewController)!
+        self.pageControl.currentPage = orderedViewControllers.firstIndex(of: pageContentViewController)!
     }
     /*
     // MARK: - Navigation

@@ -128,7 +128,9 @@ class ContainerViewController: UIViewController {
                 print("Finished enlarging uiButton, now need to create a new view")
                 sender.transform = CGAffineTransform.identity
                 sender.isSelected = false
-                self.showHelp()
+                self.helpViewController = UIStoryboard.helpViewController()
+                self.view.addSubview(self.helpViewController.view)
+                
             }
         }
     }
@@ -160,6 +162,13 @@ private extension UIStoryboard {
 
 extension ContainerViewController: TodokeTableViewControllerDelegate {
     
+    func clearAll() {
+        print("Clear All button was pressed")
+        toggleLeftPanel()
+        
+        UIApplication.shared.sendAction(centerViewController.navigationItem.leftBarButtonItem!.action!, to: centerViewController.navigationItem.leftBarButtonItem!.target, from: self, for: nil)
+    }
+    
     func enableReordering() {
         print("Reorder Items button was pressed")
         toggleLeftPanel()
@@ -168,10 +177,10 @@ extension ContainerViewController: TodokeTableViewControllerDelegate {
     
     func showHelp() {
         print(#function)
-        helpViewController = UIStoryboard.helpViewController()
+        //helpViewController = UIStoryboard.helpViewController()
         //centerNavigationController.pushViewController(helpViewController, animated: true)
 
-        view.addSubview(helpViewController.view)
+        
     }
     
     func pressHelp() {

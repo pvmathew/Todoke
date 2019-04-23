@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D01FA19B226EFFAA00659E28 /* clearall.png in Resources */ = {isa = PBXBuildFile; fileRef = D01FA19A226EFFAA00659E28 /* clearall.png */; };
 		D02189A22254880F001D16F3 /* sloth.png in Resources */ = {isa = PBXBuildFile; fileRef = D02189A12254880F001D16F3 /* sloth.png */; };
 		D02C5EC422572C9600127FEB /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02C5EC322572C9600127FEB /* MenuItem.swift */; };
 		D02C5EC92257308A00127FEB /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = D02C5EC62257308A00127FEB /* settings.png */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D01FA19A226EFFAA00659E28 /* clearall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clearall.png; sourceTree = "<group>"; };
 		D02189A12254880F001D16F3 /* sloth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sloth.png; sourceTree = "<group>"; };
 		D02C5EC322572C9600127FEB /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		D02C5EC62257308A00127FEB /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 		D02C5EC52257301E00127FEB /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				D01FA19A226EFFAA00659E28 /* clearall.png */,
 				D02C5EC72257308A00127FEB /* reorder.png */,
 				D02C5EC82257308A00127FEB /* rgb.png */,
 				D02C5EC62257308A00127FEB /* settings.png */,
@@ -175,6 +178,7 @@
 				D02C5ECA2257308A00127FEB /* reorder.png in Resources */,
 				D0811EAF224DB24A003F0679 /* LaunchScreen.storyboard in Resources */,
 				D0DBA6CB2245F7E000729F39 /* Main.storyboard in Resources */,
+				D01FA19B226EFFAA00659E28 /* clearall.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

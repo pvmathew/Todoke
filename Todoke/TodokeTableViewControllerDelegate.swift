@@ -38,4 +38,5 @@ protocol TodokeTableViewControllerDelegate{
     @objc optional func enableReordering()
     @objc optional func showThemes()
     @objc optional func pressHelp()
+    @objc optional func clearAll()
 }

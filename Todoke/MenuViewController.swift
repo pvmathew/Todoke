@@ -38,8 +38,9 @@ class SidePanelViewController: UIViewController {
         super.viewDidLoad()
         
         menuItems.append(MenuItem(name: "Reorder Tasks", iconName: "reorder", detail: "You're a mess."))
-        menuItems.append(MenuItem(name: "Change Theme", iconName: "rgb", detail: "Afraid of the dark?"))
-        menuItems.append(MenuItem(name: "Settings", iconName: "settings", detail: "To be implemented!"))
+        menuItems.append(MenuItem(name: "Clear All", iconName: "clearall", detail: "A clean start, maybe?"))
+        menuItems.append(MenuItem(name: "Change Theme", iconName: "rgb", detail: "Afraid of the dark? BAH!"))
+        menuItems.append(MenuItem(name: "Settings", iconName: "settings", detail: "To be implemented."))
         menuItems.append(MenuItem(name: "Help", iconName: "sloth", detail: "Send help!"))
         
         // So lines won't be pushed right by menu icons
@@ -77,10 +78,12 @@ extension SidePanelViewController: UITableViewDelegate {
         case 0: // Reorder Items was selected
             delegate?.enableReordering?()
         case 1:
-            delegate?.showThemes?()
+            delegate?.clearAll?()
         case 2:
-            print("'Settings' was selected")
+            delegate?.showThemes?()
         case 3:
+            print("'Settings' was selected")
+        case 4:
             delegate?.toggleLeftPanel?()
             delegate?.pressHelp?()
         default:

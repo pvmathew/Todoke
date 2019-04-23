@@ -123,7 +123,7 @@ class ContainerViewController: UIViewController {
         if sender.isSelected == false {
             sender.isSelected = true
             UIView.animate(withDuration: 0.5, animations: {
-                sender.transform = CGAffineTransform(scaleX: 20, y: 20)
+                sender.transform = CGAffineTransform(scaleX: 24, y: 24)
             }) { (true) in
                 print("Finished enlarging uiButton, now need to create a new view")
                 sender.transform = CGAffineTransform.identity

@@ -94,6 +94,7 @@ class ContainerViewController: UIViewController {
         tooltipSetup()
     }
     
+    
     func tooltipSetup() {
         helpButton = UIButton(type: .custom)
         helpButton.frame = CGRect(x: view.frame.width - 100, y: view.frame.height - 100 , width: 70, height: 70)
@@ -175,19 +176,10 @@ extension ContainerViewController: TodokeTableViewControllerDelegate {
         centerViewController.activateEditMode()
     }
     
-    func showHelp() {
-        print(#function)
-        //helpViewController = UIStoryboard.helpViewController()
-        //centerNavigationController.pushViewController(helpViewController, animated: true)
-
-        
-    }
-    
     func pressHelp() {
         print(#function)
         helpButton.sendActions(for: .touchUpInside)
     }
-    
     
     func showThemes() {
         print("Change Theme button was pressed")
